@@ -1,4 +1,5 @@
 <?php
+#Tomas Marin Aristizabal
 
 namespace App\Http\Controllers;
 
@@ -8,48 +9,58 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-
   public function index(): View
   {
-    return view('product.index');
-  }
-
-  public function list(): View
-  {
     $viewData = [];
+    $product = Product::all();
     $viewData["title"] = "Products - Point n shot";
     $viewData["subtitle"] =  "Lista de productos";
-    $viewData["products"] = Product::all();
-    return view('product.list')->with("viewData", $viewData);
+    $viewData["product"] = $product;
+
+    return view('product.index')->with("viewData", $viewData);
   }
 
   public function show(string $id) : View
-    {
-        $viewData = [];
-        $product = Product::findOrFail($id);
-        $viewData["id"] = $id;
-        $viewData["reference"] = $product["reference"];
-        $viewData["brand"] = $product["brand"];
-        $viewData["price"] = $product["price"];
-        $viewData["stock"] = $product["stock"];
-        $viewData["description"] = $product["description"];
-        $viewData["weight"] = $product["weight"];
-        return view('product.show')->with("viewData", $viewData);
-    }
+  {
+    $viewData = [];
+    $product = Product::findOrFail($id)::with('reviews')->get();
+    $viewData["product"] = $product;
+
+    return view('product.show')->with("viewData", $viewData);
+  }
+
+  #Los metodos de abajo van en admin
 
   public function create(): View
   {
-    $viewData = [];
-    $viewData["title"] = "Crear producto";
-
-    return view('product.create')->with("viewData", $viewData);
+    return view('product.create');
   }
-  
+
   public function save(Request $request): \Illuminate\Http\RedirectResponse
   {
-    #Hacer validacion
-    Product::create($request->only(["reference", "image", "brand", "price", "stock", "description", "weight"]));
-    return back()->with("success", "Elemento creado satisfactoriamente");
+    Product::validate($request);
+    #Product::create($request->only(["reference", "image", "brand", "price", "stock", "description", "weight"]));
+    
+    $request->file->store('product', 'public');
+
+    $product = new Product([
+        "reference" => $request->get('reference'),
+        "image" => $request->file->hashName(),
+        "brand" => $request->get('brand'),
+        "price" => $request->get('price'),
+        "stock" => $request->get('stock'),
+        "description" => $request->get('description'),
+        "weight" => $request->get('weight')
+    ]);
+    $product->save();
+    
+    return back()->with("success", "Producto creado satisfactoriamente");
+  }
+
+  public function delete(string $id): View
+  {
+    $deleted = Product::where('id', $id)->delete();
+    return $this->list();
   }
 
 }

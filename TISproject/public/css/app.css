@@ -1,13 +1,13 @@
 .bg-secondary {
-    background-color: #ff5347 !important;
+    background-color: #191825 !important;
 }
 
 .bg-primary {
-    background-color: #fdb970 !important;
+    background-color: #865dff !important;
 }
 
 .copyright {
-    background-color: #ffe858;
+    background-color: #e384ff;
     color: black !important;
 }
 
@@ -29,9 +29,17 @@ nav {
 }
 
 .divContenidoPaginaInicio {
-    width: 400px;
+    width: 500px;
     text-align: justify;
 }
 
 #parrafoPaginaInicio {
+}
+
+#tituloSobreNosotros {
+    text-align: center;
+}
+
+#parrafoPaginaSobreNosotros {
+    text-align: justify;
 }
