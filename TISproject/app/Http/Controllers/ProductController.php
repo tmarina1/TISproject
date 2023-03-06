@@ -39,18 +39,19 @@ class ProductController extends Controller
   public function save(Request $request): \Illuminate\Http\RedirectResponse
   {
     Product::validate($request);
-    #Product::create($request->only(["reference", "image", "brand", "price", "stock", "description", "weight"]));
     
-    $request->file->store('product', 'public');
+    $image = $request->file('image');
+    $imageName =  "img/products/".time()."_".$image->getClientOriginalName();
+    \Storage::disk('public')->put($imageName,  \File::get($image));
 
     $product = new Product([
-        "reference" => $request->get('reference'),
-        "image" => $request->file->hashName(),
-        "brand" => $request->get('brand'),
-        "price" => $request->get('price'),
-        "stock" => $request->get('stock'),
-        "description" => $request->get('description'),
-        "weight" => $request->get('weight')
+      "reference" => $request->get('reference'),
+      "image" => $imageName,
+      "brand" => $request->get('brand'),
+      "price" => $request->get('price'),
+      "stock" => $request->get('stock'),
+      "description" => $request->get('description'),
+      "weight" => $request->get('weight')
     ]);
     $product->save();
     
