@@ -2,8 +2,8 @@
 @section('title', "Point 'n Shoot")
 @section('content')
 <div class="divContenidoPaginaSobreNosotros">
-  <h1 id="tituloSobreNosotros">Point 'n shoot</h1>
-  <p id="parrafoPaginaSobreNosotros">
+  <h1 id="titleAboutUs">Point 'n shoot</h1>
+  <p id="paragraphPageAboutUs">
   Bienvenido a nuestra sección de inicio, donde mostramos una gran variedad de artículos fotográficos 
   que ayudaran a proyectar su imaginación e inspirarán su creatividad. Tanto si eres un fotógrafo 
   experimentado como si acabas de empezar en el mundo de la fotografía, tenemos algo para ti.

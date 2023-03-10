@@ -10,15 +10,20 @@
         <h5 class="card-title">
           Referencia: {{ $viewData["product"]->getReference() }}
         </h5>
-        <p class="card-text">Marca: {{ $viewData["product"]->getBrand() }}</p>
-        <p class="card-text">Precio: {{ $viewData["product"]->getPrice() }}</p>
-        <p class="card-text">Stock: {{ $viewData["product"]->getStrock() }}</p>
-        <p class="card-text">Descripción: {{ $viewData["product"]->getDescription() }}</p>
-        <p class="card-text">Peso: {{ $viewData["product"]->getWeight() }} kg</p>
-        <p class="card-text">Reviews: {{ $viewData["product"]->getReview() }}</p>
-        <button onclick="window.location.href='{{ route('product.buy', ['id'=>$viewData["id"]]) }}'" class="btn btn-primary">Comprar productor</button>
+        <p class="card-text"><strong>Marca:</strong> {{ $viewData["product"]->getBrand() }}</p>
+        <p class="card-text"><strong>Precio:</strong> {{ $viewData["product"]->getPrice() }}</p>
+        <p class="card-text"><strong>Stock:</strong> {{ $viewData["product"]->getStrock() }}</p>
+        <p class="card-text"><strong>Descripción:</strong> {{ $viewData["product"]->getDescription() }}</p>
+        <p class="card-text"><strong>Peso:</strong> {{ $viewData["product"]->getWeight() }} kg</p>
+        <p class="card-text"><strong>Reviews:</strong></p>
+        @foreach($viewData["product"]->getReviews() as $review)
+          <p class="card-text">{{ $review->getReview() }}</p>
+        @endforeach
+        <button onclick="window.location.href='{{ route('cart.addToCart', ['id'=>$viewData["id"]]) }}'" class="btn btn-primary">Agregar al carrito</button>
       </div>
     </div>
   </div>
+  <h1>Hacer una review</h1>
+
 </div>
 @endsection

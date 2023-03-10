@@ -24,7 +24,7 @@ nav {
     width: 4.3em;
 }
 
-#tituloNav {
+#titleNav {
     text-shadow: 2px 3px 0 #0e0e0e;
 }
 
@@ -33,13 +33,14 @@ nav {
     text-align: justify;
 }
 
-#parrafoPaginaInicio {
-}
-
-#tituloSobreNosotros {
+#titleAboutUs {
     text-align: center;
 }
 
-#parrafoPaginaSobreNosotros {
+#paragraphPageAboutUs {
     text-align: justify;
+}
+
+#titlePageProducts {
+    text-shadow: 2px 3px 0 #ad92fc;
 }

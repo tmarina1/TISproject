@@ -25,12 +25,16 @@ class CartController extends Controller
         $cartProductData[$id] = $id;
         $request->session()->put('cart_product_data', $cartProductData);
 
-        return back();
+        return back()->with('success', 'Producto agregado satisfactoriamente');;
     }
 
-    public function removeAll(Request $request): RedirectResponse
+    public function remove(string $id, Request $request)
     {
-        $request->session()->forget('cart_product_data');
-        return back();
+        $cart = session()->get('cart');
+        if(isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
+        session()->flash('success', 'Product removed successfully');
     }
 }

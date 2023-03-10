@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+#Tomas
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
 Route::get('/', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
 
+#Juan Pablo
+
+
+#Simon
