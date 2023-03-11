@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('description');
             $table->float('weight');
+            $table->unsignedBigInteger('itemID');
+            $table->foreign('itemID')->references('id')->on('items')->onDelete('cascade');
             $table->unsignedBigInteger('reviewId');
             $table->foreign('reviewId')->references('id')->on('reviews')->onDelete('cascade');
             $table->unsignedBigInteger('userInWish');

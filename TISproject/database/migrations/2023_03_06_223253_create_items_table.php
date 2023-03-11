@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->int('quantity');
+            $table->integer('quantity');
+            $table->integer('price');
             $table->unsignedBigInteger('orderId');
             $table->foreign('orderId')->references('id')->on('orders')->onDelete('cascade');
             $table->unsignedBigInteger('productId');
@@ -22,6 +23,7 @@ return new class extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      */

@@ -122,7 +122,7 @@ class Product extends Model
 
     public function users() : HasMany
     {
-        return $this->hasMany(Users::class);
+        return $this->hasMany(User::class);
     }
 
     public function getUsers(): Collection
@@ -133,6 +133,21 @@ class Product extends Model
     public function setUsers(Collection $users): void
     {
         $this->users = $users;
+    }
+
+    public function items(): HasMany
+    { 
+        return $this->hasMany(Item::class); 
+    } 
+
+    public function getItems(): Collection
+    { 
+        return $this->items; 
+    } 
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items; 
     }
 
     public function getCreatedAt()
