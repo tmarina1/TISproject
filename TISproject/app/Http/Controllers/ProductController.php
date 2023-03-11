@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product;
 use \Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
-
+use App\Util\ImageStorage;
 
 class ProductController extends Controller
 {
@@ -44,7 +43,6 @@ class ProductController extends Controller
   public function productsOfTheMonth()
   {
     $viewData["randomProducts"] = Product::inRandomOrder()->limit(3)->get();
-
   }
   
   #Los metodos de abajo van en admin
@@ -57,14 +55,11 @@ class ProductController extends Controller
   public function save(Request $request): RedirectResponse
   {
     Product::validate($request);
-    
-    $image = $request->file('image');
-    $imageName =  "img/products/".time().$image->getClientOriginalName();
-    Storage::disk('public')->put($imageName,  \File::get($image));
+    $storeImage = new ImageStorage();
 
     $product = new Product;
     $product->setReference($request->get('reference'));
-    $product->setImage($imageName);
+    $product->setImage($storeImage->store($request));
     $product->setBrand($request->get('brand'));
     $product->setPrice($request->get('price'));
     $product->setStock($request->get('stock'));
@@ -85,11 +80,9 @@ class ProductController extends Controller
 
   public function upDate(Request $request, string $id): RedirectResponse
   {
-    $image = $request->file('image');
-    $imageName =  "img/products/".time()."_".$image->getClientOriginalName();
-    Storage::disk('public')->put($imageName,  \File::get($image));
     $product = Product::find($id);
-    $product->setImage($imageName);
+    $storeImage = new ImageStorage();
+    $product->setImage($storeImage->store($request));
     $product->setPrice($request->get('price'));
     $product->setStock($request->get('stock'));
     $product->setDescription($request->get('description'));
@@ -105,7 +98,6 @@ class ProductController extends Controller
     } catch (Exception){
       $error = "Error";
     }
-    #$deleted = Product::where('id', $id)->delete();
     return redirect('/products/list')->with('success', 'Producto eliminado!');
   }
 
