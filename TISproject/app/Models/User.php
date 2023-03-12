@@ -3,42 +3,180 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+     * USER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the user primary key (id)
+     * $this->attributes['name'] - string - contains the user's name
+     * $this->attributes['lastName'] - string - contains the user's last name
+     * $this->attributes['password'] - string - contains the user password
+     * $this->attributes['email'] - string - contains the user email address
+     * $this->attributes['telephone'] - string - contains the user telephone number
+     * $this->attributes['address'] - string - contains the user address
+     * $this->attributes['userType'] - string - contains the user type (client or admin)
+     * $this->attributes['reviewId'] - int - contains the referenced review id
+     * $this->reviews - Review[] - contains the associated reviews
+     * $this->attributes['productInWish'] - int - contains the referenced product id
+     * $this->wishList - Products[] - contains the associated products
+     * $this->attributes['created_at'] - timestamp - contains the user creation date 
+     * $this->attributes['updated_at'] - timestamp - contains the user update date
+     * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
+    */
+    use HasApiTokens, Notifiable;
+
     protected $fillable = [
         'name',
-        'email',
+        'lastName',
         'password',
+        'email',
+        'telephone',
+        'address',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+    
+    public function getLastName(): string
+    {
+        return $this->attributes['lastName'];
+    }
+
+    public function setLastName($lastName): void
+    {
+        $this->attributes['lastName'] = $lastName;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword($password): void
+    {
+        $this->attributes['password'] = $password;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail($email): void
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getTelephone(): string
+    {
+        return $this->attributes['telephone'];
+    }
+
+    public function setTelephone($telephone): void
+    {
+        $this->attributes['telephone'] = $telephone;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->attributes['address'];
+    }
+
+    public function setAddress($address): void
+    {
+        $this->attributes['address'] = $address;
+    }
+
+    public function getUserType(): string
+    {
+        return $this->attributes['userType'];
+    }
+
+    public function setUserType($type): void
+    {
+        $this->attributes['userType'] = $type;
+    }
+
+    public function reviews() : HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->review;
+    }
+
+    public function setReviews($reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    public function wishList() : HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function getWishList(): Collection
+    {
+        return $this->wishList;
+    }
+
+    public function setWishList($wishes): void
+    {
+        $this->wishList = $wishes;
+    }
+
+    public function getCreatedAt(): TimeStamp
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): TimeStamp
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function getEmailVerifiedAt(): TimeStamp
+    {
+        return $this->attributes['email_verified_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            "name" => "required|string",
+            "lastName" => "required|string", 
+            "password" => "required|string",
+            "email" => "required|string",
+            "telephone" => "required|string",
+            "address" => "required|string",
+        ]);
+    }
+
 }
