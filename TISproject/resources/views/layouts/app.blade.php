@@ -21,7 +21,7 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index')}}">Inicio</a>
           <a class="nav-link active" href="{{ route('home.about')}}">Sobre nosotros</a>
-          <a class="nav-link active" href="{{ route('product.index')}}">Productos</a>
+          <a class="nav-link active" href="{{ route('cart.index')}}">Carrito</a>
         </div>
       </div>
     </div>

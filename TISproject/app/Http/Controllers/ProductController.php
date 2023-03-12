@@ -35,7 +35,27 @@ class ProductController extends Controller
   {
     $viewData["title"] = "Products - Point n shot";
     $viewData["subtitle"] =  "Lista de productos";
-    $viewData["products"] = Product::whereBetween('price', '<=',$request->get('price'))->get();
+
+    if($request->get('price') == 50)
+    {
+      $viewData["products"] = Product::whereBetween('price', [0, $request->get('price')])->get();
+    }
+    elseif ($request->get('price') == 100) 
+    {
+      $viewData["products"] = Product::whereBetween('price', [50, $request->get('price')])->get();
+    }
+    elseif ($request->get('price') == 200)
+    {
+      $viewData["products"] = Product::whereBetween('price', [100, $request->get('price')])->get();
+    }
+    elseif ($request->get('price') == 300)
+    {
+      $viewData["products"] = Product::whereBetween('price', [200, $request->get('price')])->get();
+    }
+    elseif ($request->get('price') == 301)
+    {
+      $viewData["products"] = Product::where('price', '>=', $request->get('price'))->get();
+    }
 
     return view('product.list')->with("viewData", $viewData);
   }
