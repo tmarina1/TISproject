@@ -25,7 +25,7 @@ class ProductController extends Controller
   public function show(string $id) : View
   {
     $viewData = [];
-    $product = Product::findOrFail($id)::with('reviews')->get();
+    $product = Product::findOrFail($id);
     $viewData["product"] = $product;
 
     return view('product.show')->with("viewData", $viewData);

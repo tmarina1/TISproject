@@ -2,7 +2,7 @@
 @section('title', "Point 'n Shoot")
 @section('content')
 <div class="row">
-  <h1> Producto recomendado del mes </h1>
+  <h2> Producto recomendado del mes </h2>
 
   <h1 id="titlePageProducts">Productos</h1>
   @foreach ($viewData["product"] as $product)
@@ -17,8 +17,8 @@
   </div>
   @endforeach
 
-  <h1>Top 3 productos</h1>
+  <h2>Top 3 productos</h2>
 
-  <h1> Foto del mes </h1>
+  <h2> Foto del mes </h2>
 
 @endsection

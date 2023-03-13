@@ -14,11 +14,6 @@ return new class extends Migration
             $table->string('telephone');
             $table->string('address');
             $table->string('userType')->default('client');
-            $table->unsignedBigInteger('reviewId')->nullable();
-            $table->foreign('reviewId')->references('id')->on('reviews')->onDelete('cascade');
-            $table->unsignedBigInteger('productInWishId')->nullable();
-            $table->foreign('productInWishId')->references('id')->on('products')->onDelete('cascade');
-
         });
     }
 

@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filmDevelopOrders', function (Blueprint $table) {
+        Schema::create('wishes', function (Blueprint $table) {
             $table->id();
-            $table->string('referenceFilm');
-            $table->string('photo')->default('');
-            $table->float('price');
-            $table->boolean('state')->default('0');
-            $table->string('observation')->default('');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('filmDevelopOrder');
+        Schema::dropIfExists('wishes');
     }
 };

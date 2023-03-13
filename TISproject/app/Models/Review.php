@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
@@ -22,8 +24,8 @@ class Review extends Model
     protected $fillable = [
         'review',
         'rate',
-        'userId',
-        'productId',
+        'user_id',
+        'product_id',
     ];
 
     public function getReview(): string
@@ -56,6 +58,16 @@ class Review extends Model
         return $this->user; 
     }
 
+    public function getProductId(): int
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId(int $pId): void
+    {
+        $this->attributes['product_id'] = $pId;
+    }
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
@@ -81,8 +93,8 @@ class Review extends Model
         $request->validate([
             "review" => "required|string",
             "rate" => "required|integer|min:1|max:5",
-            "userId" => "required|exists:users,id",
-            "productId" => "required|exists:products,id",
+            "user_id" => "required|exists:users,id",
+            "product_id" => "required|exists:products,id",
         ]);
     }
 

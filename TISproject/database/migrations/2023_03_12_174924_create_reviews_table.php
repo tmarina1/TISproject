@@ -13,10 +13,10 @@ return new class extends Migration
             $table->id();
             $table->text('review');
             $table->unsignedInteger('rate');
-            $table->unsignedBigInteger('userId');
-            $table->foreign('userId')->references('id')->on('reviews')->onDelete('cascade');
-            $table->unsignedBigInteger('productId');
-            $table->foreign('productId')->references('id')->on('reviews')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

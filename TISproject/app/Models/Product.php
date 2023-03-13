@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use App\Models\Review;
 
 class Product extends Model
 {
@@ -100,7 +103,7 @@ class Product extends Model
         return $this->attributes['weight'];
     }
 
-    public function setWeight($weight) : float
+    public function setWeight($weight) : void
     {
         $this->attributes['weight'] = $weight;
     }
@@ -112,7 +115,7 @@ class Product extends Model
 
     public function getReviews(): Collection
     {
-        return $this->review;
+        return $this->reviews;
     }
 
     public function setReviews(Collection $reviews): void
@@ -181,5 +184,15 @@ class Product extends Model
             "stock" => "numeric|gt:0",
             "description" => "string",
         ]);
+    }
+
+    public static function sumPricesByQuantities($products, $productsInSession) 
+    { 
+        $total = 0; 
+        foreach ($products as $product) 
+        { 
+            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]); 
+        } 
+        return $total; 
     }
 }

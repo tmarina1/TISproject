@@ -38,7 +38,7 @@
         </a> 
       </div> 
     </div> 
-    <button onclick="window.location.href='{{route('product.list')}}'" class="btn btn-primary">{{ __('texts.listProducts') }}</button>
+    <button onclick="window.location.href='{{route('product.index')}}'" class="btn bg-primary text-white mb-2">{{ __('texts.listProducts') }}</button>
   </div> 
 </div> 
 @endsection

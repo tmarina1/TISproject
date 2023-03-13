@@ -19,7 +19,7 @@
       <img src="{{ asset('/img/logo.svg') }}" alt="Logo point 'n shoot" id="logoNav">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{ route('home.index')}}">Inicio</a>
+          <a class="nav-link active" href="{{ route('product.index')}}">Inicio</a>
           <a class="nav-link active" href="{{ route('home.about')}}">Sobre nosotros</a>
           <a class="nav-link active" href="{{ route('cart.index')}}">Carrito</a>
         </div>
