@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('numberOrder');
             $table->integer('totalPrice');
-            $table->boolean('state');
+            $table->boolean('state')->default('0');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

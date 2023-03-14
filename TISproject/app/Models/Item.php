@@ -38,6 +38,15 @@ class Item extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
+    public function getPrice(): int
+    {
+        return $this->attributes['price'];
+    }
+
+    public function setPrice($price): void
+    {
+        $this->price = $price;
+    }
 
     public function getOrderId() 
     { 

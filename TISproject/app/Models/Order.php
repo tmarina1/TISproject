@@ -67,6 +67,10 @@ class Order extends Model
     {
         return $this->attributes['user_id'];
     }
+    public function setUserId($user_id): void
+    {
+        $this->user_id = $user_id;
+    }
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
