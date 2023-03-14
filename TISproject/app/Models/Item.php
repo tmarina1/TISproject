@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -17,7 +20,7 @@ class Item extends Model
      * $this->attributes['updated_at'] - timestamp - contains the product update date
     */
 
-    protected $fillable = ['quantity', 'order', 'product'];
+    protected $fillable = ['quantity', 'order_id', 'product_id'];
 
     public function getId(): int
     {
@@ -41,22 +44,22 @@ class Item extends Model
 
     public function getOrderId() 
     { 
-        return $this->attributes['orderId']; 
+        return $this->attributes['order_id']; 
     }
 
     public function setOrderId($orderId) 
     { 
-        $this->attributes['orderId'] = $orderId; 
+        $this->attributes['order_id'] = $orderId; 
     } 
 
     public function getProductId() 
     { 
-        return $this->attributes['productId']; 
+        return $this->attributes['product_id']; 
     } 
 
     public function setProductId($productId) 
     { 
-        $this->attributes['productId'] = $productId; 
+        $this->attributes['product_id'] = $productId; 
     }
 
     public function product(): BelongsTo
@@ -91,22 +94,21 @@ class Item extends Model
 
     public function getCreated_at(): timestamp
     {
-        return $this->attributes['date'];
+        return $this->attributes['created_at'];
     }
 
     public function getUpdate_at(): timestamp
     {
-        return $this->attributes['date'];
+        return $this->attributes['updated_at'];
     }
-
 
     public static function validate($request) 
     { 
         $request->validate([
             "price" => "required|numeric|gt:0",
             "quantity" => "required|numeric|gt:0", 
-            "productId" => "required|exists:products,id", 
-            "orderId" => "required|exists:orders,id",
+            "product_id" => "required|exists:products,id", 
+            "order_id" => "required|exists:orders,id",
         ]); 
     }
 }

@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\User;
+use App\Models\Item;
 
 class Product extends Model
 {
@@ -22,6 +24,7 @@ class Product extends Model
      * $this->attributes['weight'] - string - contains the product weight
      * $this->reviews - Review[] - contains the associated reviews
      * $this->users - User[] - contains the associated users
+     * $this->items - Item[] - contains the associated items
      * $this->attributes['created_at'] - timestamp - contains the product creation date 
      * $this->attributes['updated_at'] - timestamp - contains the product update date
     */
@@ -153,12 +156,12 @@ class Product extends Model
         $this->items = $items; 
     }
 
-    public function getCreatedAt()
+    public function getCreatedAt(): timestamp
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt()
+    public function getUpdatedAt(): timestamp
     {
         return $this->attributes['updated_at'];
     }

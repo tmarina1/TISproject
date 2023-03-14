@@ -97,6 +97,4 @@ class Review extends Model
             "product_id" => "required|exists:products,id",
         ]);
     }
-
-
 }
