@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('referenceFilm');
             $table->string('photo')->default('');
-            $table->float('price');
+            $table->integer('price');
             $table->boolean('state')->default('0');
             $table->string('observation')->default('');
             $table->unsignedBigInteger('user_id');

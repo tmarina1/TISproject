@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class FilmDevelopOrder extends Model
 {
@@ -15,8 +17,11 @@ class FilmDevelopOrder extends Model
      * $this->attributes['price'] - float - contains the film develop order price
      * $this->attributes['state'] - boolean - contains the order state
      * $this->attributes['observation'] - string - contains the order observations
+     * $this->attributes['created_at'] - timestamp - contains the review creation date
+     * $this->attributes['user_id'] - int - contains the referenced user id
+     * $this->user - User - contains the associated User
     */
-    protected $fillable = ['reference_film','photo','price','state','observation'];
+    protected $fillable = ['referenceFilm','photo','price','state','observation'];
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -27,11 +32,11 @@ class FilmDevelopOrder extends Model
     }
     public function getReferenceFilm(): string
     {
-        return $this->attributes['reference_film'];
+        return $this->attributes['referenceFilm'];
     }
-    public function setReferenceFilm($reference_film) : void
+    public function setReferenceFilm($referenceFilm) : void
     {
-        $this->attributes['reference_film'] = $reference_film;
+        $this->attributes['referenceFilm'] = $referenceFilm;
     }
     public function getPhoto(): string
     {
@@ -41,7 +46,7 @@ class FilmDevelopOrder extends Model
     {
         $this->attributes['photo'] = $photo;
     }
-    public function getPrice(): float
+    public function getPrice(): int
     {
         return $this->attributes['price'];
     }
@@ -69,6 +74,14 @@ class FilmDevelopOrder extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function getUser(): User
+    {
+        return $this->user; 
+    }
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
     public function getCreated_at(): timestamp
     {
         return $this->attributes['date'];
@@ -76,7 +89,7 @@ class FilmDevelopOrder extends Model
     public static function validate($request) 
     { 
         $request->validate([
-            "reference_film" => "required",
+            "referenceFilm" => "required",
             "price" => "required|numeric",
         ]); 
     }

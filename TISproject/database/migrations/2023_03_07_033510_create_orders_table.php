@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('numberOrder');
-            $table->float('totalPrice');
+            $table->integer('totalPrice');
             $table->boolean('state');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
