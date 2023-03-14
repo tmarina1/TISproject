@@ -12,9 +12,9 @@ class FilmDevelopOrder extends Model
         /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['reference_film'] - string - contains the order reference film 
+     * $this->attributes['referenceFilm'] - string - contains the order reference film 
      * $this->attributes['photo'] - string - contains the order photos
-     * $this->attributes['price'] - float - contains the film develop order price
+     * $this->attributes['price'] - int - contains the film develop order price
      * $this->attributes['state'] - boolean - contains the order state
      * $this->attributes['observation'] - string - contains the order observations
      * $this->attributes['created_at'] - timestamp - contains the review creation date
@@ -85,6 +85,10 @@ class FilmDevelopOrder extends Model
     public function getCreated_at(): timestamp
     {
         return $this->attributes['date'];
+    }
+    public function getUpdatedAt(): timestamp
+    {
+        return $this->attributes['updated_at'];
     }
     public static function validate($request) 
     { 
