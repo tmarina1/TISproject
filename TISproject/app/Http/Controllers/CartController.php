@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product; 
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller 
 { 
@@ -46,4 +49,31 @@ class CartController extends Controller
     $request->session()->forget('products.' .$id); 
     return back()->with("Producto eliminado satisfactioriamente"); 
     }
+    public function purchase (Request $request): RedirectResponse
+    {
+        $productsInSession = $request->session()->get("products"); 
+        if ($productsInSession){
+        $userId = Auth::user()->getId(); 
+        $order = new Order(); 
+        $order->setUserId($userId);
+        $order->setTotalPrice(0);
+        $order->save(); 
+        $total = 0; 
+        $productsInCart = Product::findMany(array_keys($productsInSession)); 
+        foreach ($productsInCart as $product) { 
+        $quantity = $productsInSession[$product->getId()]; 
+        $item = new Item(); 
+        $item->setQuantity($quantity); 
+        $item->setPrice($product->getPrice()); 
+        $item->setProductId($product->getId()); 
+        $item->setOrderId($order->getId()); 
+        $item->save(); 
+        $total = $total + ($product->getPrice()*$quantity); 
+        } 
+        $order->setTotalPrice($total); 
+        $order->save();
+        }else{
+            return redirect()->route('cart.index');
+        }
+}
 }
