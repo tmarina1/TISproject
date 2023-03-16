@@ -57,7 +57,7 @@ class User extends Authenticatable
         return $this->attributes['name'];
     }
 
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
     }
@@ -67,7 +67,7 @@ class User extends Authenticatable
         return $this->attributes['lastName'];
     }
 
-    public function setLastName($lastName): void
+    public function setLastName(string $lastName): void
     {
         $this->attributes['lastName'] = $lastName;
     }
@@ -77,7 +77,7 @@ class User extends Authenticatable
         return $this->attributes['password'];
     }
 
-    public function setPassword($password): void
+    public function setPassword(string $password): void
     {
         $this->attributes['password'] = $password;
     }
@@ -87,7 +87,7 @@ class User extends Authenticatable
         return $this->attributes['email'];
     }
 
-    public function setEmail($email): void
+    public function setEmail(string $email): void
     {
         $this->attributes['email'] = $email;
     }
@@ -97,7 +97,7 @@ class User extends Authenticatable
         return $this->attributes['telephone'];
     }
 
-    public function setTelephone($telephone): void
+    public function setTelephone(string $telephone): void
     {
         $this->attributes['telephone'] = $telephone;
     }
@@ -107,7 +107,7 @@ class User extends Authenticatable
         return $this->attributes['address'];
     }
 
-    public function setAddress($address): void
+    public function setAddress(string $address): void
     {
         $this->attributes['address'] = $address;
     }
@@ -117,7 +117,7 @@ class User extends Authenticatable
         return $this->attributes['userType'];
     }
 
-    public function setUserType($type): void
+    public function setUserType(string $type): void
     {
         $this->attributes['userType'] = $type;
     }

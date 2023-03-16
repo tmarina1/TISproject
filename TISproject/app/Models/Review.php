@@ -33,7 +33,7 @@ class Review extends Model
         return $this->attributes['review'];
     }
 
-    public function setReview($review): void
+    public function setReview(string $review): void
     {
         $this->attributes['review'] = $review;
     }
@@ -43,7 +43,7 @@ class Review extends Model
         return $this->attributes['rate'];
     }
 
-    public function setRate($rate): void
+    public function setRate(string $rate): void
     {
         $this->attributes['rate'] = $rate;
     }
