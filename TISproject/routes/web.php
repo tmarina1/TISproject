@@ -30,3 +30,4 @@ Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->na
 
 
 #Simon
+Auth::routes();

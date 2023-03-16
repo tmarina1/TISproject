@@ -23,6 +23,7 @@ class User extends Authenticatable
      * $this->reviews - Review[] - contains the associated reviews
      * $this->attributes['productInWish'] - int - contains the referenced product id
      * $this->wishList - Products[] - contains the associated products
+     * $this->attributes['balance'] - int - contains the user balance
      * $this->attributes['created_at'] - timestamp - contains the user creation date 
      * $this->attributes['updated_at'] - timestamp - contains the user update date
      * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
@@ -150,6 +151,16 @@ class User extends Authenticatable
     public function setWishList($wishes): void
     {
         $this->wishList = $wishes;
+    }
+
+    public function getBalance(): int
+    {
+        return $this->balance;
+    }
+
+    public function setBalance(int $balance): void
+    {
+        $this->balance = $balance;
     }
 
     public function getCreatedAt(): TimeStamp

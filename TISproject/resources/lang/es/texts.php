@@ -17,7 +17,22 @@ return [
   'deleteAllProductsForCart' => 'Eliminar todos los productos del carrito',
   'listProducts' => 'Listar productos',
   
-  #Simon Cardenas 
+  #Simon Cardenas
+   'nameRegister' => 'Nombre',
+   'emailRegister' => 'Email',
+   'passwordRegister' => 'Contraseña',
+   'confirmPassword' => 'Confirmar contraseña',
+   'sendRegister' => 'Registrarse',
+   'lastNameRegister' => 'Apellido(s)',
+   'telephoneRegister' => 'Teléfono',
+   'addressRegister' => 'Dirección',
+
+
+
+
+
+
+
 
   #Juan Pablo Yepes
 ];
