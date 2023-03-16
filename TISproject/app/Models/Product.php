@@ -36,7 +36,7 @@ class Product extends Model
         return $this->attributes['id'];
     }
 
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
     }
@@ -46,7 +46,7 @@ class Product extends Model
         return $this->attributes['reference'];
     }
 
-    public function setReference($reference) : void
+    public function setReference(string $reference) : void
     {
         $this->attributes['reference'] = $reference;
     }
@@ -56,7 +56,7 @@ class Product extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage($image) : void
+    public function setImage(string $image) : void
     {
         $this->attributes['image'] = $image;
     }
@@ -66,7 +66,7 @@ class Product extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand($brand) : void
+    public function setBrand(string $brand) : void
     {
         $this->attributes['brand'] = $brand;
     }
@@ -76,7 +76,7 @@ class Product extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($price) : void
+    public function setPrice(int $price) : void
     {
         $this->attributes['price'] = $price;
     }
@@ -86,7 +86,7 @@ class Product extends Model
         return $this->attributes['stock'];
     }
 
-    public function setStock($stock) : void
+    public function setStock(int $stock) : void
     {
         $this->attributes['stock'] = $stock;
     }
@@ -96,7 +96,7 @@ class Product extends Model
         return $this->attributes['description'];
     }
 
-    public function setDescription($description) : void
+    public function setDescription(string $description) : void
     {
         $this->attributes['description'] = $description;
     }
@@ -106,7 +106,7 @@ class Product extends Model
         return $this->attributes['weight'];
     }
 
-    public function setWeight($weight) : void
+    public function setWeight(float $weight): void
     {
         $this->attributes['weight'] = $weight;
     }
@@ -189,7 +189,7 @@ class Product extends Model
         ]);
     }
 
-    public static function sumPricesByQuantities($products, $productsInSession) 
+    public static function sumPrices($products, $productsInSession) 
     { 
         $total = 0; 
         foreach ($products as $product) 

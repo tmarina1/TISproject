@@ -26,6 +26,7 @@ Route::get('/products/create', 'App\Http\Controllers\ProductController@create')-
 Route::post('/products/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
 
 #Juan Pablo
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 
 
 
 #Simon

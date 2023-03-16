@@ -32,7 +32,7 @@
     <div class="row">
       <div class="text-end"> 
         <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a> 
-        <a class="btn bg-primary text-white mb-2">Purchase</a> 
+        <a class="btn bg-primary text-white mb-2" href="{{ route('cart.purchase') }}">Purchase</a> 
         <a href="{{ route('cart.remove') }}">
           <button class="btn btn-danger mb-2">{{ __('texts.deleteAllProductsForCart') }}</button> 
         </a> 

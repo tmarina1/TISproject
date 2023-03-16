@@ -108,7 +108,7 @@ class ProductController extends Controller
     $product->setDescription($request->get('description'));
     $product->save();
 
-    return redirect('/products/list')->with('success', 'Producto actualizado!');
+    return redirect()->route('product.list')->with('success', 'Producto actualizado!');
   }
 
   public function delete(string $id): RedirectResponse
@@ -118,7 +118,7 @@ class ProductController extends Controller
     } catch (Exception){
       $error = "Error";
     }
-    return redirect('/products/list')->with('success', 'Producto eliminado!');
+    return redirect()->route('product.list')->with('success', 'Producto eliminado!');
   }
 
 }
