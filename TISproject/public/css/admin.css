@@ -1,0 +1,15 @@
+.bg-secondary {
+    background-color: #191825 !important;
+}
+
+.bg-primary {
+    background-color: #865dff !important;
+}
+
+.bg-red {
+    background-color: red !important;
+}
+
+#backgroundAdminColor {
+    background-color: #191825;
+}

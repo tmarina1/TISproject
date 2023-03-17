@@ -8,13 +8,13 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-          Referencia: {{ $viewData["product"]->getReference() }}
+        {{ __('texts.reference') }}: {{ $viewData["product"]->getReference() }}
         </h5>
-        <p class="card-text"><strong>Marca:</strong> {{ $viewData["product"]->getBrand() }}</p>
-        <p class="card-text"><strong>Precio:</strong> {{ $viewData["product"]->getPrice() }}</p>
-        <p class="card-text"><strong>Stock:</strong> {{ $viewData["product"]->getStock() }}</p>
-        <p class="card-text"><strong>Descripción:</strong> {{ $viewData["product"]->getDescription() }}</p>
-        <p class="card-text"><strong>Peso:</strong> {{ $viewData["product"]->getWeight() }} kg</p>
+        <p class="card-text"><strong>{{ __('texts.brand') }}:</strong> {{ $viewData["product"]->getBrand() }}</p>
+        <p class="card-text"><strong>{{ __('texts.price') }}:</strong> {{ $viewData["product"]->getPrice() }}</p>
+        <p class="card-text"><strong>{{ __('texts.stock') }}:</strong> {{ $viewData["product"]->getStock() }}</p>
+        <p class="card-text"><strong>{{ __('texts.description') }}:</strong> {{ $viewData["product"]->getDescription() }}</p>
+        <p class="card-text"><strong>{{ __('texts.weight') }}:</strong> {{ $viewData["product"]->getWeight() }} kg</p>
         <p class="card-text"><strong>Reviews:</strong></p>
         @foreach($viewData["product"]->reviews as $review)
           ° {{ $review->getReview() }} Usuario: {{ $review->getUser()->getName() }}
@@ -37,8 +37,9 @@
         </div> 
       </div> 
     </form>
-    
+    <div class="text-center">
+      <button onclick="window.location.href='#'" class="btn btn-danger text-white">Hacer review</button>
+    </div>
   </div>
 </div>
-<h2>Hacer una review</h2>
 @endsection

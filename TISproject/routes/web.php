@@ -22,8 +22,13 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@remove')->name("cart.remove"); 
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@removeElement')->name("cart.removeElement"); 
 ##############
-Route::get('/products/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
-Route::post('/products/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
+
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
+Route::post('/admin/product/save', 'App\Http\Controllers\Admin\AdminProductController@save')->name("admin.product.save");
+Route::get('/admin/products/delete/{id}', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
+Route::get('/admin/products/indexupdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpDate')->name("admin.product.indexUpDate");
+Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@upDate')->name("admin.product.upDate");
 
 #Juan Pablo
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 
