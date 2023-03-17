@@ -32,9 +32,15 @@ class CartController extends Controller
 
     public function add(Request $request, $id): RedirectResponse
     {
+    $product = Product::find($id);
     $products = $request->session()->get("products"); 
-    $products[$id] = $request->input('quantity'); 
+    if($request->get('quantity') >= $product->getStock()){
+        $products[$id] = $product->getStock(); 
+    }else{
+        $products[$id] = $request->input('quantity'); 
+    }
     $request->session()->put('products', $products); 
+    
     return redirect()->route('cart.index')->with('success', 'Producto agregado satisfactioriamente');
     }
 
