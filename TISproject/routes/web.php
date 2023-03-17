@@ -20,6 +20,8 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@remove')->name("cart.remove"); 
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@removeElement')->name("cart.removeElement"); 
+Route::post('/products/filter', 'App\Http\Controllers\ProductController@filter')->name("product.filter");
+Route::post('/products/filter/brand', 'App\Http\Controllers\ProductController@filterBrand')->name("product.filterBrand");
 ##############
 //Admin restricted routes
 Route::middleware('admin')->group(function () {
@@ -36,3 +38,4 @@ Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->na
 
 #Simon
 Auth::routes();
+

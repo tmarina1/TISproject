@@ -23,6 +23,7 @@ class AdminProductController extends Controller
   {
     Product::validate($request);
     $storeImage = new ImageStorage();
+    $productOfTheMonth = $request->get('productOfTheMonth');
 
     $product = new Product;
     $product->setReference($request->get('reference'));
@@ -32,6 +33,9 @@ class AdminProductController extends Controller
     $product->setStock($request->get('stock'));
     $product->setDescription($request->get('description'));
     $product->setWeight($request->get('weight'));
+    if($productOfTheMonth == 'on'){
+      $product->setProductOfTheMonth('1');
+    }
     $product->save();
     
     return back()->with("success", "Producto creado satisfactoriamente");

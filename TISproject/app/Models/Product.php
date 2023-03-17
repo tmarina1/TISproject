@@ -111,6 +111,16 @@ class Product extends Model
         $this->attributes['weight'] = $weight;
     }
 
+    public function getProductOfTheMonth(): bool
+    {
+        return $this->attributes['productOfTheMonth'];
+    }
+
+    public function setProductOfTheMonth(bool $productOfTheMonth): void
+    {
+        $this->attributes['productOfTheMonth'] = $productOfTheMonth;
+    }
+
     public function reviews() : HasMany
     {
         return $this->hasMany(Review::class);

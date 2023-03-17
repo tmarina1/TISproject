@@ -28,6 +28,8 @@ return [
   'descriptionRegister' => 'Ingrese la descripción',
   'weightRegister' => 'Ingrese el peso',
   'create' => 'Crear',
+  'productOfTheMonth' => 'Producto del mes',
+  'orderByPrice' => 'Ordenar por precio',
   'manageProducts' => 'Manejo de productos',
   'edit' => 'Editar',
   'delete' => 'Eliminar',

@@ -15,9 +15,11 @@ class ProductController extends Controller
   {
     $viewData = [];
     $product = Product::all();
+    $productOfTheMonth = Product::where('productOfTheMonth', true)->get();
     $viewData["title"] = "Products - Point n shot";
     $viewData["subtitle"] =  "Lista de productos";
     $viewData["product"] = $product;
+    $viewData["productOfTheMonth"] = $productOfTheMonth;
 
     return view('product.index')->with("viewData", $viewData);
   }

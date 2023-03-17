@@ -14,14 +14,14 @@
 
       <form method="POST" action="{{ route('admin.product.save') }}" enctype="multipart/form-data">
         @csrf
-        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.referenceRegister') }}" name="reference" value="{{ old('reference') }}"/>
-        <input type="file" class="form-control mb-2" placeholder="{{ __('texts.imageRegister') }}" name="image" />
-        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.brandRegister') }}" name="brand" value="{{ old('brand') }}"/>
-        <input type="number" class="form-control mb-2" placeholder="{{ __('texts.priceRegister') }}" name="price" value="{{ old('price') }}"/>
-        <input type="number" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="stock" value="{{ old('stock') }}"/>
-        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="description" value="{{ old('description') }}"/>
-        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.weightRegister') }}" name="weight" value="{{ old('weight') }}"/>
-        <input type="submit" class="btn btn-primary" value="{{ __('texts.create') }}" />
+        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.referenceRegister') }}" name="reference" value="{{ old('reference') }}" require/>
+        <input type="file" class="form-control mb-2" placeholder="{{ __('texts.imageRegister') }}" name="image" require />
+        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.brandRegister') }}" name="brand" value="{{ old('brand') }}" require/>
+        <input type="number" class="form-control mb-2" placeholder="{{ __('texts.priceRegister') }}" name="price" value="{{ old('price') }}" require/>
+        <input type="number" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="stock" value="{{ old('stock') }}" require/>
+        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.descriptionRegister') }}" name="description" value="{{ old('description') }}" require/>
+        <input type="text" class="form-control mb-2" placeholder="{{ __('texts.weightRegister') }}" name="weight" value="{{ old('weight') }}" require/>
+        <label><input type="checkbox" name="productOfTheMonth"/> {{ __('texts.productOfTheMonth') }}</label>
       </form>
     </div>
   </div>
