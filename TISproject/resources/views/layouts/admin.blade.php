@@ -22,7 +22,7 @@
           <a href="{{ route('admin.product.index') }}" class="nav-link text-white">° {{ __('texts.adminProducts') }}</a>
         </li> 
         <li> 
-          <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{ __('texts.backToProductsPage') }}</a> 
+          <a href="{{ route('product.index') }}" class="mt-2 btn bg-primary text-white">{{ __('texts.backToProductsPage') }}</a> 
         </li> 
       </ul> 
     </div>

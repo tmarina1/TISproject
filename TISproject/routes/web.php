@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 #Tomas
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
 Route::get('/', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
@@ -22,14 +21,15 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@remove')->name("cart.remove"); 
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@removeElement')->name("cart.removeElement"); 
 ##############
-
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
-Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
-Route::post('/admin/product/save', 'App\Http\Controllers\Admin\AdminProductController@save')->name("admin.product.save");
-Route::get('/admin/products/delete/{id}', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
-Route::get('/admin/products/indexupdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpDate')->name("admin.product.indexUpDate");
-Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@upDate')->name("admin.product.upDate");
-
+//Admin restricted routes
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+    Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
+    Route::post('/admin/product/save', 'App\Http\Controllers\Admin\AdminProductController@save')->name("admin.product.save");
+    Route::get('/admin/products/delete/{id}', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
+    Route::get('/admin/products/indexupdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpDate')->name("admin.product.indexUpDate");
+    Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@upDate')->name("admin.product.upDate");
+});
 #Juan Pablo
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 
 
