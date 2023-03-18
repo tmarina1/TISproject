@@ -29,6 +29,7 @@ return [
   'weightRegister' => 'Ingrese el peso',
   'create' => 'Crear',
   'productOfTheMonth' => 'Producto del mes',
+  'filterByBrand' => 'Filtrar por marca',
   'orderByPrice' => 'Ordenar por precio',
   'manageProducts' => 'Manejo de productos',
   'edit' => 'Editar',
@@ -38,6 +39,8 @@ return [
   'adminProducts' => 'Productos admin',
   'backToProductsPage' => 'volver a la pagina de productos',
   'editProduct' => 'Editar prodroducto',
+  'order' => 'Ordenar',
+  'filter' => 'Filtrar',
 
   #Simon Cardenas
   'nameRegister' => 'Nombre',

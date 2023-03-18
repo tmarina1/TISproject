@@ -37,90 +37,40 @@ class ProductController extends Controller
   {
     $viewData["title"] = "Products - Point n shot";
     $viewData["subtitle"] =  "Lista de productos";
+    $viewData["productOfTheMonth"] = Product::where('productOfTheMonth', true)->get();
 
     if($request->get('price') == 50)
     {
-      $viewData["products"] = Product::whereBetween('price', [0, $request->get('price')])->get();
+      $viewData["product"] = Product::whereBetween('price', [0, $request->get('price')])->get();
     }
     elseif ($request->get('price') == 100) 
     {
-      $viewData["products"] = Product::whereBetween('price', [50, $request->get('price')])->get();
+      $viewData["product"] = Product::whereBetween('price', [50, $request->get('price')])->get();
     }
     elseif ($request->get('price') == 200)
     {
-      $viewData["products"] = Product::whereBetween('price', [100, $request->get('price')])->get();
+      $viewData["product"] = Product::whereBetween('price', [100, $request->get('price')])->get();
     }
     elseif ($request->get('price') == 300)
     {
-      $viewData["products"] = Product::whereBetween('price', [200, $request->get('price')])->get();
+      $viewData["product"] = Product::whereBetween('price', [200, $request->get('price')])->get();
     }
     elseif ($request->get('price') == 301)
     {
-      $viewData["products"] = Product::where('price', '>=', $request->get('price'))->get();
+      $viewData["product"] = Product::where('price', '>=', $request->get('price'))->get();
     }
 
-    return view('product.list')->with("viewData", $viewData);
+    return view('product.index')->with("viewData", $viewData);
   }
 
-  public function productsOfTheMonth()
+  public function filterBrand(Request $request): View
   {
-    $viewData["randomProducts"] = Product::inRandomOrder()->limit(3)->get();
+    $viewData["title"] = "Products - Point n shot";
+    $viewData["subtitle"] =  "Lista de productos";
+    $viewData["product"] = Product::where('brand', $request->get('brands'))->get();
+    $viewData["productOfTheMonth"] = Product::where('productOfTheMonth', true)->get();
+
+    return view('product.index')->with("viewData", $viewData);
   }
   
-  #Los metodos de abajo van en admin
-
-  public function create(): View
-  {
-    return view('product.create');
-  }
-
-  public function save(Request $request): RedirectResponse
-  {
-    Product::validate($request);
-    $storeImage = new ImageStorage();
-
-    $product = new Product;
-    $product->setReference($request->get('reference'));
-    $product->setImage($storeImage->store($request));
-    $product->setBrand($request->get('brand'));
-    $product->setPrice($request->get('price'));
-    $product->setStock($request->get('stock'));
-    $product->setDescription($request->get('description'));
-    $product->setWeight($request->get('weight'));
-    $product->save();
-    
-    return back()->with("success", "Producto creado satisfactoriamente");
-  }
-
-  public function viewUpDate(string $id): View
-  {
-    $viewData = [];
-    $viewData["title"] = "Actualizar producto";
-    $viewData["id"] = $id;
-    return view('product.viewUpDate')->with("viewData", $viewData);
-  }
-
-  public function upDate(Request $request, string $id): RedirectResponse
-  {
-    $product = Product::find($id);
-    $storeImage = new ImageStorage();
-    $product->setImage($storeImage->store($request));
-    $product->setPrice($request->get('price'));
-    $product->setStock($request->get('stock'));
-    $product->setDescription($request->get('description'));
-    $product->save();
-
-    return redirect()->route('product.list')->with('success', 'Producto actualizado!');
-  }
-
-  public function delete(string $id): RedirectResponse
-  {
-    try{
-      $delete = Product::destroy($id);
-    } catch (Exception){
-      $error = "Error";
-    }
-    return redirect()->route('product.list')->with('success', 'Producto eliminado!');
-  }
-
 }

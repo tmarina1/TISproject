@@ -29,24 +29,37 @@
   <label><input type="radio" name="price" value="200" id ="filterPriceItem"> $100 - $200</label>
   <label><input type="radio" name="price" value="300" id ="filterPriceItem"> $200 - $300</label>
   <label><input type="radio" name="price" value="301" id ="filterPriceItem"> Mayor a $300</label>
-  <input type="submit" class="btn bg-primary text-white" value="ordenar" />
+  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.order') }}" />
+</form>
+
+<h4>{{ __('texts.filterByBrand') }}</h4>
+<form method="POST" action="{{ route('product.filterBrand') }}">
+  @csrf
+  <select class="mb-3" name="brands" id="selectIndexProducts">
+    <option value="minolta">Minolta</option>
+    <option value="kodak">Kodak</option>
+    <option value="olympus">Olympus</option>
+    <option value="sony">Sony</option>
+    <option value="fujifilm">Fuji film</option>
+    <option value="lomography">Lomography</option>
+    <option value="panasonic">Panasonic</option>
+  </select>
+  <input type="submit" class="btn bg-primary text-white" value="{{ __('texts.filter') }}" />
 </form>
 
 <div class="row">
-
   <h1 id="titlePageProducts" class="mt-3">Productos</h1>
   @foreach ($viewData["product"] as $product)
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <img src="{{ URL::asset('storage/'.$product->image) }}" class="card-img-top img-card">
       <div class="card-body text-center">
-        <a href="{{ route('product.show', ['id'=> $product->getId()]) }}"
-          class="btn bg-primary text-white">{{ $product->getBrand() }} : {{ $product->getReference() }}</a>
-          <a href="{{ route('product.show', ['id'=> $product->getId()]) }}"
-          class="btn text-black"><strong>Price: {{ $product->getPrice() }}</strong></a>
-        </div>
+        <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn bg-primary text-white"><strong>{{ $product->getBrand() }}</strong> : {{ $product->getReference() }}</a>
+        <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn text-black"><strong>Price: {{ $product->getPrice() }}</strong></a>
+      </div>
     </div>
   </div>
   @endforeach
+</div>
 
 @endsection
