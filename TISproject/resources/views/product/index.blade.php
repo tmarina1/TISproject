@@ -5,14 +5,14 @@
 
 <div class="text-center">
 <div class="row justify-content-center">
-  <h2 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h2>
+  <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
   @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
   <div class="col-lg-3 mb-2 mt-3">
     <div class="card">
-      <img src="{{ URL::asset('storage/'.$productOfTheMonth->image) }}" class="card-img-top img-card">
+      <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
-          class="btn bg-primary text-white">{{ $productOfTheMonth->getBrand() }} : {{ $productOfTheMonth->getReference() }}</a>
+          class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
         <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
           class="btn text-black"><strong>{{ __('texts.price') }}: {{ $productOfTheMonth->getPrice() }}</strong></a>
       </div>
@@ -38,7 +38,7 @@
   @csrf
   <select class="mb-3" name="brands" id="selectIndexProducts">
     <option value="minolta">Minolta</option>
-    <option value="kodak">Kodak</option>
+    <option value="kentmere">Kentmere</option>
     <option value="olympus">Olympus</option>
     <option value="sony">Sony</option>
     <option value="fujifilm">Fuji film</option>
@@ -49,11 +49,11 @@
 </form>
 
 <div class="row">
-  <h1 id="titlePageProducts" class="mt-3">{{ __('texts.products') }}</h1>
+  <h1 id="titlePageProducts" class="mt-3 mb-5">{{ __('texts.products') }}</h1>
   @foreach ($viewData["product"] as $product)
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
-      <img src="{{ URL::asset('storage/'.$product->image) }}" class="card-img-top img-card">
+      <img src="{{ URL::asset('storage/'.$product->getImage()) }}" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn bg-primary text-white"><strong>{{ $product->getBrand() }}</strong> : {{ $product->getReference() }}</a>
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn text-black"><strong>{{ __('texts.price') }}: {{ $product->getPrice() }}</strong></a>

@@ -35,6 +35,7 @@ class ProductController extends Controller
 
   public function filter(Request $request)
   {
+    $viewData = [];
     $viewData["title"] = __('texts.titleProductsIndex');
     $viewData["subtitle"] =  __('texts.subtitleProductsIndex');
     $viewData["productOfTheMonth"] = Product::where('productOfTheMonth', true)->get();
@@ -65,6 +66,7 @@ class ProductController extends Controller
 
   public function filterBrand(Request $request): View
   {
+    $viewData = [];
     $viewData["title"] = __('texts.titleProductsIndex');
     $viewData["subtitle"] =  __('texts.subtitleProductsIndex');
     $viewData["product"] = Product::where('brand', $request->get('brands'))->get();
@@ -72,5 +74,4 @@ class ProductController extends Controller
 
     return view('product.index')->with("viewData", $viewData);
   }
-  
 }

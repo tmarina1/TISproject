@@ -19,16 +19,16 @@
       <img src="{{ asset('/img/logo.svg') }}" alt="Logo point 'n shoot" id="logoNav">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{ route('product.index')}}">Inicio</a>
-          <a class="nav-link active" href="{{ route('home.about')}}">Sobre nosotros</a>
-          <a class="nav-link active" href="{{ route('cart.index')}}">Carrito</a>
+          <a class="nav-link active" href="{{ route('product.index')}}">{{ __('texts.start') }}</a>
+          <a class="nav-link active" href="{{ route('home.about')}}">{{ __('texts.aboutUs') }}</a>
+          <a class="nav-link active" href="{{ route('cart.index')}}">{{ __('texts.car') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div> 
           @guest 
-            <a class="nav-link active" href="{{ route('login') }}">Login</a> 
-            <a class="nav-link active" href="{{ route('register') }}">Register</a> 
+            <a class="nav-link active" href="{{ route('login') }}">{{ __('texts.logIn') }}</a> 
+            <a class="nav-link active" href="{{ route('register') }}">{{ __('texts.register') }}</a> 
           @else 
             <form id="logout" action="{{ route('logout') }}" method="POST"> 
-              <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">Logout</a> 
+              <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">{{ __('texts.logOut') }}</a> 
               @csrf 
             </form> 
           @endguest

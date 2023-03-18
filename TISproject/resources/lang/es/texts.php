@@ -36,6 +36,7 @@ return [
   'delete' => 'Eliminar',
   'adminPanel' => 'Panel de administración',
   'adminHome' => 'Inicio admin',
+  'adminDescription' => 'Este apartado esta diseñado para los administradores del sitio web, aca podran crear, modificar, eliminar y listar toda la información contenida en la pagina web.',
   'adminProducts' => 'Productos admin',
   'adminReviews' => 'Reviews admin',
   'backToProductsPage' => 'volver a la pagina de productos',
@@ -45,6 +46,7 @@ return [
   'addToProductOfTheMonth' => 'Agregar como producto del mes',
   'removeToProductOfTheMonth' => 'Quitar como producto del mes',
   'AdminPageProducts' => 'Pagina admin productos',
+  'homeAdmin' => 'Pagina admin',
   "titleProductsIndex" => "Productos - Point 'n shot",
   'subtitleProductsIndex' => 'Lista de productos',
   'products' => 'Productos',
@@ -52,6 +54,17 @@ return [
   'totalToPay' => 'Total a pagar',
   'generateOrder' => 'Generar orden',
   'shoppingCar' => 'Carrito de compras',
+  'user' => 'Usuario',
+  'addToCar' => 'Agregar al carrito',
+  'makeReview' => 'Hacer review',
+  'reviews' => 'Reseñas',
+  'start' => 'Inicio',
+  'aboutUs' => 'sobre nosotros',
+  'car' => 'Carrito',
+  'logIn' => 'Ingresar',
+  'logOut' => 'Cerrar',
+  'register' => 'Registrarse',
+  'subtitle' => 'Venta de articulos fotograficos',
 
 
   #Simon Cardenas

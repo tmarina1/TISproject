@@ -32,28 +32,30 @@ class CartController extends Controller
 
     public function add(Request $request, $id): RedirectResponse
     {
-    $product = Product::find($id);
-    $products = $request->session()->get("products"); 
-    if($request->get('quantity') >= $product->getStock()){
-        $products[$id] = $product->getStock(); 
-    }else{
-        $products[$id] = $request->input('quantity'); 
-    }
-    $request->session()->put('products', $products); 
-    
-    return redirect()->route('cart.index')->with('success', 'Producto agregado satisfactioriamente');
+        $product = Product::find($id);
+        $products = $request->session()->get("products"); 
+        if($request->get('quantity') >= $product->getStock()){
+            $products[$id] = $product->getStock(); 
+        }else{
+            $products[$id] = $request->input('quantity'); 
+        }
+        $request->session()->put('products', $products); 
+        
+        return redirect()->route('cart.index')->with('success', 'Producto agregado satisfactioriamente');
     }
 
     public function remove(Request $request): RedirectResponse 
     { 
-    $request->session()->forget('products'); 
-    return back()->with("Productos eliminados satisfactioriamente"); 
+        $request->session()->forget('products'); 
+
+        return back()->with("Productos eliminados satisfactioriamente"); 
     }
 
     public function removeElement(Request $request, string $id): RedirectResponse
     {
-    $request->session()->forget('products.' .$id); 
-    return back()->with("Producto eliminado satisfactioriamente"); 
+        $request->session()->forget('products.' .$id); 
+
+        return back()->with("Producto eliminado satisfactioriamente"); 
     }
 
     public function purchase(Request $request): RedirectResponse
@@ -81,6 +83,7 @@ class CartController extends Controller
             $order->setTotalPrice($total); 
             $order->save();
             $request->session()->forget('products');
+            
             return redirect()->route('cart.index');
         }else{
             return redirect()->route('cart.index');

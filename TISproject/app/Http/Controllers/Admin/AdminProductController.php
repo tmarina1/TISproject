@@ -78,6 +78,7 @@ class AdminProductController extends Controller
     } catch (Exception){
       $error = "Error";
     }
+    
     return redirect()->route('admin.product.index');
   }
 }
