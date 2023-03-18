@@ -62,7 +62,7 @@ return [
   'aboutUs' => 'sobre nosotros',
   'car' => 'Carrito',
   'logIn' => 'Ingresar',
-  'logOut' => 'Cerrar',
+  'logOut' => 'Cerrar sesión',
   'register' => 'Registrarse',
   'subtitle' => 'Venta de articulos fotograficos',
 
