@@ -1,9 +1,8 @@
 @extends('layouts.app') 
-@section('title', $viewData["title"]) 
 @section('subtitle', $viewData["subtitle"]) 
 @section('content') 
 <div class="card"> 
-  <div class="card-header">Products in Cart</div> 
+  <div class="card-header">{{ __('texts.productsInCart') }}</div> 
   <div class="card-body"> 
     <table class="table table-bordered table-striped text-center"> 
       <thead> 
@@ -29,10 +28,11 @@
         @endforeach 
       </tbody> 
     </table> 
+
     <div class="row">
       <div class="text-end"> 
-        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a> 
-        <a class="btn bg-primary text-white mb-2" href="{{ route('cart.purchase') }}">Purchase</a> 
+        <a class="btn btn-outline-secondary mb-2">{{ __('texts.totalToPay') }}: ${{ $viewData["total"] }}</a> 
+        <a class="btn bg-primary text-white mb-2" href="{{ route('cart.purchase') }}">{{ __('texts.generateOrder')}}</a> 
         <a href="{{ route('cart.remove') }}">
           <button class="btn btn-danger mb-2">{{ __('texts.deleteAllProductsForCart') }}</button> 
         </a> 

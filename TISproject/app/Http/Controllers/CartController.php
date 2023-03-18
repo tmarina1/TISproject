@@ -23,8 +23,8 @@ class CartController extends Controller
             $totalPrice = Product::sumPrices($productsInCart, $productsInSession); 
         }
 
-        $viewData = []; $viewData["title"] = "Point 'n shoot"; 
-        $viewData["subtitle"] = "Shopping Cart"; 
+        $viewData = [];
+        $viewData["subtitle"] = __('texts.shoppingCar'); 
         $viewData["total"] = $totalPrice; 
         $viewData["products"] = $productsInCart; 
         return view('cart.index')->with("viewData", $viewData);
@@ -55,29 +55,33 @@ class CartController extends Controller
     $request->session()->forget('products.' .$id); 
     return back()->with("Producto eliminado satisfactioriamente"); 
     }
-    public function purchase (Request $request): RedirectResponse
+
+    public function purchase(Request $request): RedirectResponse
     {
         $productsInSession = $request->session()->get("products"); 
         if ($productsInSession){
-        $userId = Auth::user()->getId(); 
-        $order = new Order(); 
-        $order->setUserId($userId);
-        $order->setTotalPrice(0);
-        $order->save(); 
-        $total = 0; 
-        $productsInCart = Product::findMany(array_keys($productsInSession)); 
-        foreach ($productsInCart as $product) { 
-        $quantity = $productsInSession[$product->getId()]; 
-        $item = new Item(); 
-        $item->setQuantity($quantity); 
-        $item->setPrice($product->getPrice()); 
-        $item->setProductId($product->getId()); 
-        $item->setOrderId($order->getId()); 
-        $item->save(); 
-        $total = $total + ($product->getPrice()*$quantity); 
-        } 
-        $order->setTotalPrice($total); 
-        $order->save();
+            $userId = Auth::user()->getId(); 
+            $order = new Order(); 
+            $order->setUserId($userId);
+            $order->setNumberOrder(2);
+            $order->setTotalPrice(0);
+            $order->save(); 
+            $total = 0; 
+            $productsInCart = Product::findMany(array_keys($productsInSession)); 
+            foreach ($productsInCart as $product) { 
+                $quantity = $productsInSession[$product->getId()]; 
+                $item = new Item(); 
+                $item->setQuantity($quantity); 
+                $item->setPrice($product->getPrice()); 
+                $item->setProductId($product->getId()); 
+                $item->setOrderId($order->getId()); 
+                $item->save(); 
+                $total = $total + ($product->getPrice()*$quantity); 
+            } 
+            $order->setTotalPrice($total); 
+            $order->save();
+            $request->session()->forget('products');
+            return redirect()->route('cart.index');
         }else{
             return redirect()->route('cart.index');
         }

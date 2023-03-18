@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-@section("title", $viewData["title"])
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
@@ -21,6 +20,8 @@
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.priceRegister') }}" name="price" value="{{ old('price') }}" />
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="stock" value="{{ old('stock') }}" />
               <input type="text" class="form-control mb-2" placeholder="{{ __('texts.descriptionRegister') }}" name="description" value="{{ old('description') }}" />
+              <label class="form-control mb-2"><input type="radio" name="productOfTheMonth" value="add">{{ __('texts.addToProductOfTheMonth') }}</label>
+              <label class="form-control mb-2"><input type="radio" name="productOfTheMonth" value="remove">{{ __('texts.removeToProductOfTheMonth') }}</label>
               <input type="submit" class="btn bg-primary text-white" value="{{ __('texts.edit') }}" />
             </form>
           </div>

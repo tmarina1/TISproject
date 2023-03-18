@@ -13,7 +13,6 @@ class AdminProductController extends Controller
   public function index(): View
   { 
     $viewData = []; 
-    $viewData["title"] = "Admin page products";
     $viewData["products"] = Product::all();
 
     return view('admin.product.index')->with("viewData", $viewData); 
@@ -38,30 +37,38 @@ class AdminProductController extends Controller
     }
     $product->save();
     
-    return back()->with("success", "Producto creado satisfactoriamente");
+    return back();
   }
 
   public function viewUpDate(string $id): View
   {
     $viewData = [];
-    $viewData["title"] = "Actualizar producto";
     $viewData["id"] = $id;
     return view('admin.product.indexUpDate')->with("viewData", $viewData);
   }
 
   public function upDate(Request $request, string $id): RedirectResponse
   {
-    $product = Product::findOrFail($id);
-
     Product::validateUpdate($request);
-    $storeImage = new ImageStorage();
-    $product->setImage($storeImage->store($request));
+    $product = Product::findOrFail($id);
+    $productOfTheMonth = $request->get('productOfTheMonth');
+
+    if ($request->hasFile('image')) {
+      $storeImage = new ImageStorage();
+      $product->setImage($storeImage->store($request));
+    }
+
     $product->setPrice($request->get('price'));
     $product->setStock($request->get('stock'));
     $product->setDescription($request->get('description'));
+    if($productOfTheMonth == 'add'){
+      $product->setProductOfTheMonth('1');
+    }else{
+      $product->setProductOfTheMonth('0');
+    }
     $product->save();
 
-    return redirect()->route('admin.product.index')->with('success', 'Producto actualizado!');
+    return redirect()->route('admin.product.index');
   }
 
   public function delete(string $id): RedirectResponse
@@ -71,6 +78,6 @@ class AdminProductController extends Controller
     } catch (Exception){
       $error = "Error";
     }
-    return redirect()->route('admin.product.index')->with('success', 'Producto eliminado!');
+    return redirect()->route('admin.product.index');
   }
 }

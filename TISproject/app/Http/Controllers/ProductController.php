@@ -16,8 +16,8 @@ class ProductController extends Controller
     $viewData = [];
     $product = Product::all();
     $productOfTheMonth = Product::where('productOfTheMonth', true)->get();
-    $viewData["title"] = "Products - Point n shot";
-    $viewData["subtitle"] =  "Lista de productos";
+    $viewData["title"] = __('texts.titleProductsIndex');
+    $viewData["subtitle"] =  __('texts.subtitleProductsIndex');
     $viewData["product"] = $product;
     $viewData["productOfTheMonth"] = $productOfTheMonth;
 
@@ -35,8 +35,8 @@ class ProductController extends Controller
 
   public function filter(Request $request)
   {
-    $viewData["title"] = "Products - Point n shot";
-    $viewData["subtitle"] =  "Lista de productos";
+    $viewData["title"] = __('texts.titleProductsIndex');
+    $viewData["subtitle"] =  __('texts.subtitleProductsIndex');
     $viewData["productOfTheMonth"] = Product::where('productOfTheMonth', true)->get();
 
     if($request->get('price') == 50)
@@ -65,8 +65,8 @@ class ProductController extends Controller
 
   public function filterBrand(Request $request): View
   {
-    $viewData["title"] = "Products - Point n shot";
-    $viewData["subtitle"] =  "Lista de productos";
+    $viewData["title"] = __('texts.titleProductsIndex');
+    $viewData["subtitle"] =  __('texts.subtitleProductsIndex');
     $viewData["product"] = Product::where('brand', $request->get('brands'))->get();
     $viewData["productOfTheMonth"] = Product::where('productOfTheMonth', true)->get();
 

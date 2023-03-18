@@ -1,5 +1,4 @@
 @extends('layouts.admin') 
-@section('title', $viewData["title"])
 @section('content') 
 <div class="card">
   <div class="card-header">{{ __('texts.createProduct') }}</div>
@@ -21,11 +20,12 @@
         <input type="number" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="stock" value="{{ old('stock') }}" require/>
         <input type="text" class="form-control mb-2" placeholder="{{ __('texts.descriptionRegister') }}" name="description" value="{{ old('description') }}" require/>
         <input type="text" class="form-control mb-2" placeholder="{{ __('texts.weightRegister') }}" name="weight" value="{{ old('weight') }}" require/>
-        <label><input type="checkbox" name="productOfTheMonth"/> {{ __('texts.productOfTheMonth') }}</label>
+        <label class="form-control mb-2"><input type="checkbox" name="productOfTheMonth"/> {{ __('texts.productOfTheMonth') }}</label>
+        <input type="submit" class="btn bg-primary text-white" value="{{ __('texts.createProduct') }}" />
       </form>
     </div>
   </div>
-  <div class="card"> 
+  <div class="card mt-5"> 
     <div class="card-header">{{ __('texts.manageProducts') }}</div> 
     <div class="card-body"> <table class="table table-bordered table-striped"> 
       <thead> 
@@ -33,6 +33,7 @@
           <th scope="col">{{ __('texts.id') }}</th> 
           <th scope="col">{{ __('texts.reference') }}</th> 
           <th scope="col">{{ __('texts.brand') }}</th> 
+          <th scope="col">{{ __('texts.productOfTheMonth') }}</th>
           <th scope="col">{{ __('texts.edit') }}</th> 
           <th scope="col">{{ __('texts.delete') }}</th> 
         </tr> 
@@ -43,6 +44,7 @@
           <td>{{ $product->getId() }}</td> 
           <td>{{ $product->getReference() }}</td> 
           <td>{{ $product->getBrand() }}</td> 
+          <td>{{ $product->getProductOfTheMonth() }}</td> 
           <td><button onclick="window.location.href='{{ route('admin.product.indexUpDate', ['id'=>$product->getId()]) }}'" class="btn bg-primary text-white">{{ __('texts.edit') }}</button></td> 
           <td>
             <button onclick="window.location.href='{{ route('admin.product.delete', ['id'=>$product->getId()]) }}'" class="btn btn-danger text-white">{{ __('texts.delete') }}</button>

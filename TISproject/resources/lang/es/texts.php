@@ -37,10 +37,22 @@ return [
   'adminPanel' => 'Panel de administración',
   'adminHome' => 'Inicio admin',
   'adminProducts' => 'Productos admin',
+  'adminReviews' => 'Reviews admin',
   'backToProductsPage' => 'volver a la pagina de productos',
-  'editProduct' => 'Editar prodroducto',
+  'editProduct' => 'Editar producto',
   'order' => 'Ordenar',
   'filter' => 'Filtrar',
+  'addToProductOfTheMonth' => 'Agregar como producto del mes',
+  'removeToProductOfTheMonth' => 'Quitar como producto del mes',
+  'AdminPageProducts' => 'Pagina admin productos',
+  "titleProductsIndex" => "Productos - Point 'n shot",
+  'subtitleProductsIndex' => 'Lista de productos',
+  'products' => 'Productos',
+  'productsInCart' => 'Productos en el carrito',
+  'totalToPay' => 'Total a pagar',
+  'generateOrder' => 'Generar orden',
+  'shoppingCar' => 'Carrito de compras',
+
 
   #Simon Cardenas
   'nameRegister' => 'Nombre',
@@ -51,12 +63,6 @@ return [
   'lastNameRegister' => 'Apellido(s)',
   'telephoneRegister' => 'Teléfono',
   'addressRegister' => 'Dirección',
-
-
-
-
-
-
 
 
   #Juan Pablo Yepes

@@ -22,11 +22,12 @@ class Product extends Model
      * $this->attributes['stock'] - string - contains the product stock
      * $this->attributes['description'] - string - contains the product description
      * $this->attributes['weight'] - string - contains the product weight
+     * $this->attributes['productOfTheMonth'] - boolean - contains if the product is the product of the month
      * $this->reviews - Review[] - contains the associated reviews
      * $this->users - User[] - contains the associated users
      * $this->items - Item[] - contains the associated items
-     * $this->attributes['created_at'] - timestamp - contains the product creation date 
-     * $this->attributes['updated_at'] - timestamp - contains the product update date
+     * $this->attributes['createdAt'] - timestamp - contains the product creation date 
+     * $this->attributes['updatedAt'] - timestamp - contains the product update date
     */
 
     protected $fillable = ['reference','image', 'brand', 'price', 'stock', 'description', 'weight'];
@@ -201,11 +202,11 @@ class Product extends Model
 
     public static function sumPrices($products, $productsInSession) 
     { 
-        $total = 0; 
+        $totalProductsInCar = 0; 
         foreach ($products as $product) 
         { 
-            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]); 
+            $totalProductsInCar = $totalProductsInCar + ($product->getPrice()*$productsInSession[$product->getId()]); 
         } 
-        return $total; 
+        return $totalProductsInCar; 
     }
 }
