@@ -19,27 +19,26 @@
         @foreach($viewData["product"]->reviews as $review)
           ° {{ $review->getReview() }} <strong>{{ __('texts.user') }}:</strong> {{ $review->getUser()->getName() }}
         @endforeach
-
       </div>
     </div>
-    
-    <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
-      @csrf 
-      <div class="row justify-content-end"> 
-        <div class="col-auto"> 
-          <div class="input-group col-auto"> 
-            <div class="input-group-text">{{ __('texts.quantity') }}</div> 
-            <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> 
-          </div> 
-        </div> 
-        <div class="col-auto"> 
-          <button class="btn bg-primary text-white" type="submit">{{ __('texts.addToCar') }}</button> 
-        </div> 
-      </div> 
-    </form>
-    <div class="text-center">
-      <button onclick="window.location.href='#'" class="btn btn-danger text-white">{{ __('texts.makeReview') }}</button>
-    </div>
   </div>
+</div>
+<form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
+  @csrf 
+  <div class="row justify-content-end"> 
+    <div class="col-auto"> 
+      <div class="input-group col-auto"> 
+        <div class="input-group-text">{{ __('texts.quantity') }}</div> 
+        <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> 
+      </div> 
+    </div> 
+    <div class="col-auto"> 
+      <button class="btn bg-primary text-white" type="submit">{{ __('texts.addToCar') }}</button> 
+    </div> 
+  </div> 
+</form>
+<div class="text-center">
+  <button onclick="window.location.href='{{ route('product.index') }}'" class="btn bg-primary text-white">{{ __('texts.return') }}</button>
+  <button onclick="window.location.href='#'" class="btn btn-danger text-white">{{ __('texts.makeReview') }}</button>
 </div>
 @endsection

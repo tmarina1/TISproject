@@ -65,6 +65,7 @@ return [
   'logOut' => 'Cerrar sesión',
   'register' => 'Registrarse',
   'subtitle' => 'Venta de articulos fotograficos',
+  'return' => 'Volver',
 
 
   #Simon Cardenas
