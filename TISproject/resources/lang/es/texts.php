@@ -59,7 +59,7 @@ return [
   'makeReview' => 'Hacer review',
   'reviews' => 'Reseñas',
   'start' => 'Inicio',
-  'aboutUs' => 'sobre nosotros',
+  'aboutUs' => 'Sobre nosotros',
   'car' => 'Carrito',
   'logIn' => 'Ingresar',
   'logOut' => 'Cerrar sesión',
@@ -77,6 +77,10 @@ return [
   'lastNameRegister' => 'Apellido(s)',
   'telephoneRegister' => 'Teléfono',
   'addressRegister' => 'Dirección',
+  'login' => 'Ingresar',
+  'rememberMe' => 'Recordarme',
+  'forgotPassword' => '¿Olvidaste tu contraseña?',
+
 
 
   #Juan Pablo Yepes
