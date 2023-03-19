@@ -27,7 +27,7 @@ class Order extends Model
     {
         return $this->attributes['id'];
     }
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
     }
@@ -35,7 +35,7 @@ class Order extends Model
     {
         return $this->attributes['numberOrder'];
     }
-    public function setNumberOrder($numberOrder) : void
+    public function setNumberOrder(int $numberOrder) : void
     {
         $this->attributes['numberOrder'] = $numberOrder;
     }
@@ -43,7 +43,7 @@ class Order extends Model
     {
         return $this->attributes['totalPrice'];
     }
-    public function setTotalPrice($totalPrice) : void
+    public function setTotalPrice(int $totalPrice) : void
     {
         $this->attributes['totalPrice'] = $totalPrice;
     }
@@ -51,7 +51,7 @@ class Order extends Model
     {
         return $this->attributes['state'];
     }
-    public function setState($state) : void
+    public function setState(bool $state) : void
     {
         $this->attributes['state'] = $state;
     }
@@ -67,7 +67,7 @@ class Order extends Model
     {
         return $this->attributes['user_id'];
     }
-    public function setUserId($user_id): void
+    public function setUserId(int $user_id): void
     {
         $this->user_id = $user_id;
     }
@@ -79,7 +79,7 @@ class Order extends Model
     {
         return $this->item; 
     }
-    public function getCreated_at(): timestamp
+    public function getCreatedAt(): timestamp
     {
         return $this->attributes['date'];
     }

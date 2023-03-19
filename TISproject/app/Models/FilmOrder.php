@@ -26,7 +26,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['id'];
     }
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
     }
@@ -34,7 +34,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['referenceFilm'];
     }
-    public function setReferenceFilm($referenceFilm) : void
+    public function setReferenceFilm(string $referenceFilm) : void
     {
         $this->attributes['referenceFilm'] = $referenceFilm;
     }
@@ -42,7 +42,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['photo'];
     }
-    public function setPhoto($photo) : void
+    public function setPhoto(string $photo) : void
     {
         $this->attributes['photo'] = $photo;
     }
@@ -50,7 +50,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['price'];
     }
-    public function setPrice($price) : void
+    public function setPrice(int $price) : void
     {
         $this->attributes['price'] = $price;
     }
@@ -58,7 +58,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['state'];
     }
-    public function setState($state) : void
+    public function setState(bool $state) : void
     {
         $this->attributes['state'] = $state;
     }
@@ -66,7 +66,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['observation'];
     }
-    public function setObservation($observation) : void
+    public function setObservation(string $observation) : void
     {
         $this->attributes['observation'] = $observation;
     }
@@ -82,7 +82,7 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['user_id'];
     }
-    public function getCreated_at(): timestamp
+    public function getCreatedAt(): timestamp
     {
         return $this->attributes['date'];
     }
