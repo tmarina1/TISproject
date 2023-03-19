@@ -39,7 +39,7 @@ return [
   'adminDescription' => 'Este apartado esta diseñado para los administradores del sitio web, aca podran crear, modificar, eliminar y listar toda la información contenida en la pagina web.',
   'adminProducts' => 'Productos admin',
   'adminReviews' => 'Reviews admin',
-  'backToProductsPage' => 'volver a la pagina de productos',
+  'backToProductsPage' => 'vista usuario',
   'editProduct' => 'Editar producto',
   'order' => 'Ordenar',
   'filter' => 'Filtrar',
