@@ -14,4 +14,7 @@
   <br>
     {{ __('texts.textAboutUs4') }}
   </p>
+  <div class="text-center mt-5">
+    <img src="{{ asset('/img/members.jfif') }}" id="members">
+  </div>
 @endsection
