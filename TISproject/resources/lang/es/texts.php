@@ -39,7 +39,7 @@ return [
   'adminDescription' => 'Este apartado esta diseñado para los administradores del sitio web, aca podran crear, modificar, eliminar y listar toda la información contenida en la pagina web.',
   'adminProducts' => 'Productos',
   'adminReviews' => 'Reseñas',
-  'backToProductsPage' => 'vista usuario',
+  'backToProductsPage' => 'Vista usuario',
   'editProduct' => 'Editar producto',
   'order' => 'Ordenar',
   'filter' => 'Filtrar',
@@ -92,14 +92,6 @@ return [
   'saveReview' => 'Guardar reseña',
   'modify' => 'Modificar',
   'modifyReview' => 'Modificar reseña',
-
-
-
-
-
-
-
-
 
 
 

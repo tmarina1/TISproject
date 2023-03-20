@@ -22,7 +22,7 @@
               <td>{{ $product->getReference() }}</td> 
               <td>{{ $product->getBrand() }}</td> 
               <td>{{ $product->getProductOfTheMonth() }}</td> 
-              <td><button onclick="window.location.href='{{ route('admin.product.indexUpDate', ['id'=>$product->getId()]) }}'" class="btn bg-primary text-white">{{ __('texts.edit') }}</button></td> 
+              <td><button onclick="window.location.href='{{ route('admin.product.viewUpdate', ['id'=>$product->getId()]) }}'" class="btn bg-primary text-white">{{ __('texts.edit') }}</button></td> 
               <td>
                 <button onclick="window.location.href='{{ route('admin.product.delete', ['id'=>$product->getId()]) }}'" class="btn btn-danger text-white">{{ __('texts.delete') }}</button>
               </td> 

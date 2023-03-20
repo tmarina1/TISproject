@@ -19,8 +19,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
     Route::post('/admin/product/save', 'App\Http\Controllers\Admin\AdminProductController@save')->name("admin.product.save");
     Route::get('/admin/products/delete/{id}', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
-    Route::get('/admin/products/indexupdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpDate')->name("admin.product.indexUpDate");
-    Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@upDate')->name("admin.product.upDate");
+    Route::get('/admin/products/viewUpdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpdate')->name("admin.product.viewUpdate");
+    Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
 
     Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name("admin.review.index");
     Route::post('/admin/reviews/save', 'App\Http\Controllers\Admin\AdminReviewController@save')->name("admin.review.save");

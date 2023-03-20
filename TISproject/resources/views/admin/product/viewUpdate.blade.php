@@ -14,7 +14,7 @@
             </ul>
             @endif
 
-            <form method="POST" action="{{ route('admin.product.upDate', ['id'=>$viewData["id"]]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.product.update', ['id'=>$viewData["id"]]) }}" enctype="multipart/form-data">
               @csrf
               <input type="file" class="form-control mb-2" placeholder="{{ __('texts.imageRegister') }}" name="image" />
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.priceRegister') }}" name="price" value="{{ old('price') }}" required/>

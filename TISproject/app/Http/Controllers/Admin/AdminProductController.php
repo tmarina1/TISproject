@@ -40,14 +40,14 @@ class AdminProductController extends Controller
     return back();
   }
 
-  public function viewUpDate(string $id): View
+  public function viewUpdate(string $id): View
   {
     $viewData = [];
     $viewData["id"] = $id;
-    return view('admin.product.indexUpDate')->with("viewData", $viewData);
+    return view('admin.product.viewUpdate')->with("viewData", $viewData);
   }
 
-  public function upDate(Request $request, string $id): RedirectResponse
+  public function update(Request $request, string $id): RedirectResponse
   {
     Product::validateUpdate($request);
     $product = Product::findOrFail($id);
