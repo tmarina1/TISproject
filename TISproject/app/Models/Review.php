@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request; 
 
 class Review extends Model
 {
@@ -13,9 +14,9 @@ class Review extends Model
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['review'] - text - contains the review text
      * $this->attributes['rate'] - unsigned int - contains the review rate
-     * $this->attributes['userId'] - int - contains the referenced user id
+     * $this->attributes['user_id'] - int - contains the referenced user id
      * $this->user - User - contains the associated User
-     * $this->attributes['productId'] - int - contains the referenced user id
+     * $this->attributes['product_id'] - int - contains the referenced user id
      * $this->product - Product - contains the associated Product
      * $this->attributes['created_at'] - timestamp - contains the review creation date 
      * $this->attributes['updated_at'] - timestamp - contains the review update date
@@ -27,6 +28,11 @@ class Review extends Model
         'user_id',
         'product_id',
     ];
+
+    public function getId(): string
+    {
+        return $this->attributes['id'];
+    }
 
     public function getReview(): string
     {
@@ -58,32 +64,32 @@ class Review extends Model
         return $this->user; 
     }
 
-    public function getProductId(): int
+    public function setUser(int $uId): void
     {
-        return $this->attributes['product_id'];
-    }
-
-    public function setProductId(int $pId): void
-    {
-        $this->attributes['product_id'] = $pId;
+        $this->attributes['user_id'] = $uId;
     }
 
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
-    
+
     public function getProduct(): Product
     {
         return $this->product; 
     }
 
-    public function getCreatedAt(): TimeStamp
+    public function setProduct(int $pId): void
+    {
+        $this->attributes['product_id'] = $pId;
+    }
+
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): TimeStamp
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

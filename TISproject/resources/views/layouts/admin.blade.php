@@ -19,7 +19,7 @@
           <div class="navbar-nav ms-auto">
             <a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{ __('texts.adminHome') }}</a>
             <a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{ __('texts.adminProducts') }}</a>
-            <a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{ __('texts.adminReviews') }}</a>
+            <a href="{{ route('admin.review.index') }}" class="nav-link text-white">{{ __('texts.adminReviews') }}</a>
             <a href="{{ route('product.index') }}" class="btn bg-primary text-white">{{ __('texts.backToProductsPage') }}</a>
           </div>
         </div>

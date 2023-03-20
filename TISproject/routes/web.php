@@ -21,6 +21,17 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/products/delete/{id}', 'App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
     Route::get('/admin/products/indexupdate/{id}', 'App\Http\Controllers\Admin\AdminProductController@viewUpDate')->name("admin.product.indexUpDate");
     Route::post('/admin/products/update/{id}', 'App\Http\Controllers\Admin\AdminProductController@upDate')->name("admin.product.upDate");
+
+    Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name("admin.review.index");
+    Route::post('/admin/reviews/save', 'App\Http\Controllers\Admin\AdminReviewController@save')->name("admin.review.save");
+    Route::get('/admin/reviews/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");
+    Route::get('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
+    Route::post('/admin/reviews/saveUpdate/{id}', 'App\Http\Controllers\Admin\AdminReviewController@saveUpdate')->name("admin.review.saveUpdate");
+
+
+
+
+
 });
 #Juan Pablo
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 

@@ -35,10 +35,10 @@ return [
   'edit' => 'Editar',
   'delete' => 'Eliminar',
   'adminPanel' => 'Panel de administración',
-  'adminHome' => 'Inicio admin',
+  'adminHome' => 'Inicio',
   'adminDescription' => 'Este apartado esta diseñado para los administradores del sitio web, aca podran crear, modificar, eliminar y listar toda la información contenida en la pagina web.',
-  'adminProducts' => 'Productos admin',
-  'adminReviews' => 'Reviews admin',
+  'adminProducts' => 'Productos',
+  'adminReviews' => 'Reseñas',
   'backToProductsPage' => 'vista usuario',
   'editProduct' => 'Editar producto',
   'order' => 'Ordenar',
@@ -80,6 +80,26 @@ return [
   'login' => 'Ingresar',
   'rememberMe' => 'Recordarme',
   'forgotPassword' => '¿Olvidaste tu contraseña?',
+  'availableReviews' => 'Reseñas disponibles',
+  'review' => 'Reseña',
+  'rate' => 'Calificación',
+  'userName' => 'Usuario',
+  'productName' => 'Producto',
+  'userId' => 'ID usuario',
+  'productId' => 'ID producto',
+  'createdAt' => 'Fecha de creación',
+  'createReview' => 'Crear reseña',
+  'saveReview' => 'Guardar reseña',
+  'modify' => 'Modificar',
+  'modifyReview' => 'Modificar reseña',
+
+
+
+
+
+
+
+
 
 
 
