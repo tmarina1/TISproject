@@ -14,7 +14,7 @@
         <p class="card-text"><strong>{{ __('texts.price') }}:</strong> {{ $viewData["product"]->getPrice() }}</p>
         <p class="card-text"><strong>{{ __('texts.stock') }}:</strong> {{ $viewData["product"]->getStock() }}</p>
         <p class="card-text"><strong>{{ __('texts.description') }}:</strong> {{ $viewData["product"]->getDescription() }}</p>
-        <p class="card-text"><strong>{{ __('texts.weight') }}:</strong> {{ $viewData["product"]->getWeight() }} kg</p>
+        <p class="card-text"><strong>{{ __('texts.weight') }}:</strong> {{ $viewData["product"]->getWeight() }} g</p>
         <p class="card-text"><strong>{{ __('texts.reviews') }}:</strong></p>
         @foreach($viewData["product"]->reviews as $review)
           ° {{ $review->getReview() }} <strong>{{ __('texts.user') }}:</strong> {{ $review->getUser()->getName() }} <br>
