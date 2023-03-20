@@ -44,6 +44,8 @@
     <option value="fujifilm">Fuji film</option>
     <option value="lomography">Lomography</option>
     <option value="panasonic">Panasonic</option>
+    <option value="nikon">Nikon</option>
+    <option value="canon">Canon</option>
   </select>
   <input type="submit" class="btn bg-primary text-white" value="{{ __('texts.filter') }}" />
 </form>
