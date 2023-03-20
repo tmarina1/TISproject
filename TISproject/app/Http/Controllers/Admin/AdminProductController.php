@@ -44,6 +44,7 @@ class AdminProductController extends Controller
   {
     $viewData = [];
     $viewData["id"] = $id;
+    
     return view('admin.product.viewUpdate')->with("viewData", $viewData);
   }
 
