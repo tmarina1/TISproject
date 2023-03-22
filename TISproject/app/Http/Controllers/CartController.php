@@ -57,7 +57,7 @@ class CartController extends Controller
 
         return back()->with("Producto eliminado satisfactioriamente"); 
     }
-    public function purchase(Request $request): View|RedirectResponse
+    public function purchase(Request $request): RedirectResponse
     {
         $productsInSession = $request->session()->get("products"); 
         if ($productsInSession){
