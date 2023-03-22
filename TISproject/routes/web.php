@@ -35,7 +35,10 @@ Route::middleware('admin')->group(function () {
 });
 #Juan Pablo
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 
-
+Route::middleware('auth')->group(function () { 
+    Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
+    Route::get('/order', 'App\Http\Controllers\OrderController@index')->name("order.index"); 
+}); 
 
 #Simon
 Auth::routes();

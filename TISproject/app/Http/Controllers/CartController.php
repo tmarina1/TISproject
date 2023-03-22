@@ -57,19 +57,18 @@ class CartController extends Controller
 
         return back()->with("Producto eliminado satisfactioriamente"); 
     }
-
-    public function purchase(Request $request): RedirectResponse
+    public function purchase(Request $request): View|RedirectResponse
     {
         $productsInSession = $request->session()->get("products"); 
         if ($productsInSession){
-            $userId = Auth::user()->getId(); 
+            $userId = Auth::user()->getId();
+            $productsInCart = Product::findMany(array_keys($productsInSession)); 
+            $totalPrice = Product::sumPrices($productsInCart, $productsInSession); 
+            if(Product::validateBalance($userId,$totalPrice) && Product::validateProduct($request)){ 
             $order = new Order(); 
             $order->setUserId($userId);
-            $order->setNumberOrder(2);
             $order->setTotalPrice(0);
             $order->save(); 
-            $total = 0; 
-            $productsInCart = Product::findMany(array_keys($productsInSession)); 
             foreach ($productsInCart as $product) { 
                 $quantity = $productsInSession[$product->getId()]; 
                 $item = new Item(); 
@@ -78,15 +77,24 @@ class CartController extends Controller
                 $item->setProductId($product->getId()); 
                 $item->setOrderId($order->getId()); 
                 $item->save(); 
-                $total = $total + ($product->getPrice()*$quantity); 
+                Product::updateStock($product->getId(),$quantity);
             } 
-            $order->setTotalPrice($total); 
+            $order->setTotalPrice($totalPrice); 
             $order->save();
+
+            $newBalance = Auth::user()->getBalance() - $totalPrice;
+            Auth::user()->setBalance($newBalance);
+            Auth::user()->save();
             $request->session()->forget('products');
+            $viewData = [];
+            $viewData["order"] = $order;
             
-            return redirect()->route('cart.index');
+            return redirect()->route('order.show',$order->getId())->with('success',true);
+            }else{
+                return redirect()->route('cart.index')->with('fail', 1);
+            }
         }else{
             return redirect()->route('cart.index');
         }
-}
+    }
 }

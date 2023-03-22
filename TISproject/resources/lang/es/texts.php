@@ -96,4 +96,5 @@ return [
 
 
   #Juan Pablo Yepes
+  "orderSuccessful" =>'Orden completada satisfactoriamente!',
 ];

@@ -1,6 +1,9 @@
 @extends('layouts.app') 
 @section('subtitle', $viewData["subtitle"]) 
-@section('content') 
+@section('content')
+@if(session('fail'))
+    <span><strong>No tienes saldo suficiente</strong></span>
+@endif 
 <div class="card"> 
   <div class="card-header">{{ __('texts.productsInCart') }}</div> 
     <div class="card-body"> 

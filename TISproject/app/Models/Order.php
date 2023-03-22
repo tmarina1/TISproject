@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Item;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -30,14 +31,6 @@ class Order extends Model
     public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
-    }
-    public function getNumberOrder(): int
-    {
-        return $this->attributes['numberOrder'];
-    }
-    public function setNumberOrder(int $numberOrder) : void
-    {
-        $this->attributes['numberOrder'] = $numberOrder;
     }
     public function getTotalPrice(): int
     {
@@ -77,13 +70,13 @@ class Order extends Model
     }
     public function getItems(): Collection
     {
-        return $this->item; 
+        return $this->items; 
     }
-    public function getCreatedAt(): timestamp
+    public function getCreatedAt(): string
     {
-        return $this->attributes['date'];
+        return $this->attributes['created_at'];
     }
-    public function getUpdatedAt(): timestamp
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

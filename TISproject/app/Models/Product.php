@@ -201,7 +201,7 @@ class Product extends Model
         ]);
     }
 
-    public static function sumPrices($products, $productsInSession) 
+    public static function sumPrices($products, $productsInSession): int 
     { 
         $totalProductsInCar = 0; 
         foreach ($products as $product) 
@@ -209,5 +209,34 @@ class Product extends Model
             $totalProductsInCar = $totalProductsInCar + ($product->getPrice()*$productsInSession[$product->getId()]); 
         } 
         return $totalProductsInCar; 
+    }
+    public static function validateBalance(int $userId, int $totalPrice): bool
+    {
+        $userBalance = User::findOrFail($userId)->getBalance();
+        if($userBalance < $totalPrice){
+            return false;
+        }
+        return true;
+    }
+
+    public static function validateProduct(Request $request): bool
+    {
+        $productsInSession = $request->session()->get("products");
+        $productsInCart = Product::findMany(array_keys($productsInSession)); 
+            foreach ($productsInCart as $product) { 
+                $cartQuantity = $productsInSession[$product->getId()]; 
+                $realQuantity = Product::findOrFail($product->getId());
+                if($realQuantity->getStock() < $cartQuantity){
+                    return false;
+                }
+            }
+        return true; 
+    }
+    public static function updateStock(int $productId, int $cartQuantity): void
+    {
+        $productStock = Product::findOrFail($productId);
+        $newStock = $productStock->getStock() - $cartQuantity;
+        $productStock->setStock($newStock);
+        $productStock->save();
     }
 }
