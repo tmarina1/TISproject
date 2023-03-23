@@ -23,6 +23,7 @@
     </div>
   </div>
 </div>
+@auth
 <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
   @csrf 
   <div class="row justify-content-end"> 
@@ -37,8 +38,11 @@
     </div> 
   </div> 
 </form>
+@endauth
 <div class="text-center">
   <button onclick="window.location.href='{{ route('product.index') }}'" class="btn bg-primary text-white">{{ __('texts.return') }}</button>
-  <button onclick="window.location.href='#'" class="btn btn-danger text-white">{{ __('texts.makeReview') }}</button>
+  @auth
+  <button onclick="window.location.href='{{ route('review.create', ['id'=> $viewData['product']->getId()]) }}'" class="btn btn-danger text-white">{{ __('texts.makeReview') }}</button>
+  @endauth
 </div>
 @endsection

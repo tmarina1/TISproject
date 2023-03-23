@@ -103,4 +103,12 @@ class Review extends Model
             "product_id" => "required|exists:products,id",
         ]);
     }
+
+    public static function validateReviewUser(Request $request): void
+    {
+        $request->validate([
+            "review" => "required|string",
+            "rate" => "required|integer|min:1|max:5",
+        ]);
+    }
 }

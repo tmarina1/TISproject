@@ -41,5 +41,7 @@ Route::middleware('auth')->group(function () {
 }); 
 
 #Simon
+Route::get('/review/{id}', 'App\Http\Controllers\ReviewController@create')->name("review.create");
+Route::post('/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("review.save");
 Auth::routes();
 
