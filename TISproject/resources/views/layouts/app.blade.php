@@ -21,14 +21,15 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('product.index')}}">{{ __('texts.start') }}</a>
           <a class="nav-link active" href="{{ route('home.about')}}">{{ __('texts.aboutUs') }}</a>
-          <a class="nav-link active" href="{{ route('cart.index')}}">{{ __('texts.car') }}</a>
+          
           @guest 
             <div class="vr bg-white mx-2 d-none d-lg-block"></div> 
             <a class="nav-link active" href="{{ route('login') }}">{{ __('texts.logIn') }}</a> 
             <a class="nav-link active" href="{{ route('register') }}">{{ __('texts.register') }}</a> 
           @else 
-            <a class="nav-link active" href="{{ route('order.index')}}">{{ __('texts.orders') }}</a>
             <a class="nav-link active" href="{{ route('wish.index')}}">{{ __('texts.wishes') }}</a>
+            <a class="nav-link active" href="{{ route('cart.index')}}">{{ __('texts.car') }}</a>
+            <a class="nav-link active" href="{{ route('order.index')}}">{{ __('texts.orders') }}</a>
             <div class="vr bg-white mx-2 d-none d-lg-block"></div> 
             <form id="logout" action="{{ route('logout') }}" method="POST"> 
               <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">{{ __('texts.logOut') }}</a> 
