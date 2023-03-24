@@ -66,6 +66,8 @@ return [
   'register' => 'Registrarse',
   'subtitle' => 'Venta de articulos fotograficos',
   'return' => 'Volver',
+  'wishes' => 'Deseos',
+  'orders' => 'Ordenes',
 
 
   #Simon Cardenas

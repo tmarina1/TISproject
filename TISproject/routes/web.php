@@ -13,6 +13,9 @@ Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@removeEleme
 Route::post('/products/filter', 'App\Http\Controllers\ProductController@filter')->name("product.filter");
 Route::post('/products/filterBrand', 'App\Http\Controllers\ProductController@filterBrand')->name("product.filterBrand");
 
+Route::get('/wish', 'App\Http\Controllers\WishController@index')->name("wish.index");
+Route::get('/wish/save/{id}', 'App\Http\Controllers\WishController@save')->name("wish.save");
+
 //Admin restricted routes
 Route::middleware('admin')->group(function () {
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");

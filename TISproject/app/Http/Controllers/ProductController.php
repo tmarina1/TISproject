@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product;
-use \Illuminate\Http\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
 use App\Util\ImageStorage;
 
 class ProductController extends Controller

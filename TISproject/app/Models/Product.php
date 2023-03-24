@@ -210,6 +210,7 @@ class Product extends Model
         } 
         return $totalProductsInCar; 
     }
+    
     public static function validateBalance(int $userId, int $totalPrice): bool
     {
         $userBalance = User::findOrFail($userId)->getBalance();

@@ -41,7 +41,7 @@
     <option value="kentmere">Kentmere</option>
     <option value="olympus">Olympus</option>
     <option value="sony">Sony</option>
-    <option value="fujifilm">Fuji film</option>
+    <option value="fujifilm">Fujifilm</option>
     <option value="lomography">Lomography</option>
     <option value="panasonic">Panasonic</option>
     <option value="nikon">Nikon</option>
