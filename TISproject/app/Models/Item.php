@@ -102,12 +102,12 @@ class Item extends Model
         $this->order = $order;
     }
 
-    public function getCreatedAt(): timestamp
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdateAt(): timestamp
+    public function getUpdateAt(): string
     {
         return $this->attributes['updated_at'];
     }

@@ -163,12 +163,12 @@ class User extends Authenticatable
         $this->balance = $balance;
     }
 
-    public function getCreatedAt(): TimeStamp
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): TimeStamp
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

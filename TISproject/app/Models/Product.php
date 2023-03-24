@@ -168,12 +168,12 @@ class Product extends Model
         $this->items = $items; 
     }
 
-    public function getCreatedAt(): timestamp
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): timestamp
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

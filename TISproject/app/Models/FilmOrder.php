@@ -82,11 +82,11 @@ class FilmDevelopOrder extends Model
     {
         return $this->attributes['user_id'];
     }
-    public function getCreatedAt(): timestamp
+    public function getCreatedAt(): string
     {
         return $this->attributes['date'];
     }
-    public function getUpdatedAt(): timestamp
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

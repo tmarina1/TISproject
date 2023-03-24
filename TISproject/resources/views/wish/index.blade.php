@@ -25,6 +25,7 @@
             </div> 
           </div> 
         </form>
+        <button onclick="window.location.href='{{ route('wish.delete', ['id'=> $wishes->getId()]) }}'" class="btn btn-danger text-white mt-3">{{ __('texts.delete') }}</button>
       </div>
     </div>
   </div>

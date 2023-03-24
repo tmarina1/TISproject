@@ -15,6 +15,7 @@ Route::post('/products/filterBrand', 'App\Http\Controllers\ProductController@fil
 
 Route::get('/wish', 'App\Http\Controllers\WishController@index')->name("wish.index");
 Route::get('/wish/save/{id}', 'App\Http\Controllers\WishController@save')->name("wish.save");
+Route::get('/wish/delete/{id}', 'App\Http\Controllers\WishController@delete')->name("wish.delete");
 
 //Admin restricted routes
 Route::middleware('admin')->group(function () {
@@ -30,10 +31,6 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/reviews/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");
     Route::get('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
     Route::post('/admin/reviews/saveUpdate/{id}', 'App\Http\Controllers\Admin\AdminReviewController@saveUpdate')->name("admin.review.saveUpdate");
-
-
-
-
 
 });
 #Juan Pablo

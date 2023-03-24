@@ -12,7 +12,9 @@ class Wish extends Model
 {
     /**
      * WISH ATTRIBUTES
-
+     * $this->attributes['id'] - int - contains the wish primary key (id)
+     * $this->products - Product[] - contains the associated products
+     * $this->users - User[] - contains the associated users
     */
 
     public function getId(): int
@@ -25,7 +27,7 @@ class Wish extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getUserId() 
+    public function getUserId(): int
     { 
         return $this->attributes['user_id']; 
     }
@@ -35,7 +37,7 @@ class Wish extends Model
         $this->attributes['user_id'] = $userId;
     }
 
-    public function getProductId() 
+    public function getProductId(): int
     { 
         return $this->attributes['product_id']; 
     } 
@@ -75,12 +77,12 @@ class Wish extends Model
         $this->user = $user;
     }
 
-    public function getCreatedAt(): timestamp
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdateAt(): timestamp
+    public function getUpdateAt(): string
     {
         return $this->attributes['updated_at'];
     }

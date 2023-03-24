@@ -24,14 +24,21 @@ class wishController extends Controller
     return view('wish.index')->with("viewData", $viewData);
   }
 
-  public function save(Request $request, string $pId): RedirectResponse
+  public function save(Request $request, string $productId): RedirectResponse
   {
     $userId = Auth::user()->getId();
     
     $wish = new Wish;
     $wish->setUserId($userId);
-    $wish->setProductId($pId);
+    $wish->setProductId($productId);
     $wish->save();
+    
+    return back();
+  }
+
+  public function delete(string $wishId): RedirectResponse
+  {
+    $delete = Wish::destroy($wishId);
     
     return back();
   }
