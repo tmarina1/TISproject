@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
-    public function create(string $pId): View
+    public function create(string $productId): View
     { 
       $viewData = [];
-      $viewData['productId'] = $pId;
+      $viewData['productId'] = $productId;
       return view('review.create')->with('viewData',$viewData); 
     }
 
-    public function save(Request $request, string $pId): RedirectResponse
+    public function save(Request $request, string $productId): RedirectResponse
     {
       Review::validateReviewUser($request);
       $review = new Review;
@@ -26,7 +26,7 @@ class ReviewController extends Controller
       $review->setReview($request->get('review'));
       $review->setRate($request->get('rate'));
       $review->setUser($userId);
-      $review->setProduct($pId);
+      $review->setProduct($productId);
       $review->save();
       
       return back();

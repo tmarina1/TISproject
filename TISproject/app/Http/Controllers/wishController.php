@@ -26,10 +26,16 @@ class wishController extends Controller
   {
     $userId = Auth::user()->getId();
     
-    $wish = new Wish;
-    $wish->setUserId($userId);
-    $wish->setProductId($productId);
-    $wish->save();
+    $wish = Wish::all();
+    $wishExist = $wish->where('user_id','==',$userId)->where('product_id', '==', $productId)->first();
+
+    if($wishExist == null)
+    {
+      $wish = new Wish;
+      $wish->setUserId($userId);
+      $wish->setProductId($productId);
+      $wish->save();
+    }
     
     return back();
   }
