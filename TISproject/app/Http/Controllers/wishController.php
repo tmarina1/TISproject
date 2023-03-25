@@ -3,11 +3,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Wish;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Product;
-use App\Models\User;
-use App\Models\Wish;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 

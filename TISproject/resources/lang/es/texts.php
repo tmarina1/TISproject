@@ -68,6 +68,9 @@ return [
   'return' => 'Volver',
   'wishes' => 'Deseos',
   'orders' => 'Ordenes',
+  'productAddSuccessfully' => 'Producto agregado satisfactoriamente',
+  'productRemoveSuccessfully' => 'Producto eliminado satisfactoriamente',
+  'productsRemoveSuccessfully' => 'Productos eliminados satisfactoriamente',
 
 
   #Simon Cardenas

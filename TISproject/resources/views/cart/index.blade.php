@@ -2,8 +2,34 @@
 @section('subtitle', $viewData["subtitle"]) 
 @section('content')
 @if(session('fail'))
-    <span><strong>No tienes saldo suficiente</strong></span>
+  <div class="card-body">
+    <div class="alert alert-warning" role="alert">
+      No tienes saldo suficiente
+    </div>
+  </div>
 @endif 
+@if(session('addProduct'))
+  <div class="card-body">
+    <div class="alert alert-success" role="alert">
+      {{ __('texts.productAddSuccessfully') }}
+    </div>
+  </div>
+@endif
+@if(session('removeProduct'))
+  <div class="card-body">
+    <div class="alert alert-success" role="alert">
+      {{ __('texts.productRemoveSuccessfully') }}
+    </div>
+  </div>
+@endif
+@if(session('removeProducts'))
+  <div class="card-body">
+    <div class="alert alert-success" role="alert">
+      {{ __('texts.productsRemoveSuccessfully') }}
+    </div>
+  </div>
+@endif
+
 <div class="card"> 
   <div class="card-header">{{ __('texts.productsInCart') }}</div> 
     <div class="card-body"> 

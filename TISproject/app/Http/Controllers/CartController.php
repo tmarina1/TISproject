@@ -41,22 +41,23 @@ class CartController extends Controller
         }
         $request->session()->put('products', $products); 
         
-        return redirect()->route('cart.index')->with('success', 'Producto agregado satisfactioriamente');
+        return redirect()->route('cart.index')->with('addProduct', 1);
     }
 
     public function remove(Request $request): RedirectResponse 
     { 
         $request->session()->forget('products'); 
 
-        return back()->with("Productos eliminados satisfactioriamente"); 
+        return back()->with('removeProducts', 1); 
     }
 
     public function removeElement(Request $request, string $id): RedirectResponse
     {
         $request->session()->forget('products.' .$id); 
 
-        return back()->with("Producto eliminado satisfactioriamente"); 
+        return back()->with('removeProduct', 1); 
     }
+    
     public function purchase(Request $request): RedirectResponse
     {
         $productsInSession = $request->session()->get("products"); 
@@ -65,31 +66,31 @@ class CartController extends Controller
             $productsInCart = Product::findMany(array_keys($productsInSession)); 
             $totalPrice = Product::sumPrices($productsInCart, $productsInSession); 
             if(Product::validateBalance($userId,$totalPrice) && Product::validateProduct($request)){ 
-            $order = new Order(); 
-            $order->setUserId($userId);
-            $order->setTotalPrice(0);
-            $order->save(); 
-            foreach ($productsInCart as $product) { 
-                $quantity = $productsInSession[$product->getId()]; 
-                $item = new Item(); 
-                $item->setQuantity($quantity); 
-                $item->setPrice($product->getPrice()); 
-                $item->setProductId($product->getId()); 
-                $item->setOrderId($order->getId()); 
-                $item->save(); 
-                Product::updateStock($product->getId(),$quantity);
-            } 
-            $order->setTotalPrice($totalPrice); 
-            $order->save();
+                $order = new Order(); 
+                $order->setUserId($userId);
+                $order->setTotalPrice(0);
+                $order->save(); 
+                foreach ($productsInCart as $product) { 
+                    $quantity = $productsInSession[$product->getId()]; 
+                    $item = new Item(); 
+                    $item->setQuantity($quantity); 
+                    $item->setPrice($product->getPrice()); 
+                    $item->setProductId($product->getId()); 
+                    $item->setOrderId($order->getId()); 
+                    $item->save(); 
+                    Product::updateStock($product->getId(),$quantity);
+                } 
+                $order->setTotalPrice($totalPrice); 
+                $order->save();
 
-            $newBalance = Auth::user()->getBalance() - $totalPrice;
-            Auth::user()->setBalance($newBalance);
-            Auth::user()->save();
-            $request->session()->forget('products');
-            $viewData = [];
-            $viewData["order"] = $order;
-            
-            return redirect()->route('order.show',$order->getId())->with('success',true);
+                $newBalance = Auth::user()->getBalance() - $totalPrice;
+                Auth::user()->setBalance($newBalance);
+                Auth::user()->save();
+                $request->session()->forget('products');
+                $viewData = [];
+                $viewData["order"] = $order;
+                
+                return redirect()->route('order.show',$order->getId())->with('success',true);
             }else{
                 return redirect()->route('cart.index')->with('fail', 1);
             }

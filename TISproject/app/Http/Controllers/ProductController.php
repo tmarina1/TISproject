@@ -3,11 +3,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Util\ImageStorage;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
-use App\Util\ImageStorage;
 
 class ProductController extends Controller
 {
