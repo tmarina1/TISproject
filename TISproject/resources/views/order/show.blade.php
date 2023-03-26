@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Purchase')
 @section('content')
+
+@if(session('success'))
+   <div class="card-body">
+      <div class="alert alert-success" role="alert">
+         {{ __('texts.orderSuccessful')}}
+      </div>
+   </div>
+@endif
 <div class="card">
 <div class="card mb-4">
    <div class="card-header">
@@ -23,8 +31,7 @@
                <tr>
                   <td>{{ $item->getId() }}</td>
                   <td>
-                     <a class="link-success" href="{{ route('product.show', ['id'=> $item->getProduct()->getId()]) 
-                     }}">
+                     <a class="link-success" href="{{ route('product.show', ['id'=> $item->getProduct()->getId()]) }}">
                      {{ $item->getProduct()->getReference() }}
                      </a>
                   </td>
@@ -36,15 +43,5 @@
       </table>
       </div>
    </div>
-   @if(session('success'))
-      <div class="card-header">
-         Purchase Completed
-      </div>
-      <div class="card-body">
-         <div class="alert alert-success" role="alert">
-            {{ __('texts.orderSuccessful')}}
-         </div>
-      </div>
-   @endif
    </div>
 @endsection

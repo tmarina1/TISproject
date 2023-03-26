@@ -71,6 +71,7 @@ return [
   'productAddSuccessfully' => 'Producto agregado satisfactoriamente',
   'productRemoveSuccessfully' => 'Producto eliminado satisfactoriamente',
   'productsRemoveSuccessfully' => 'Productos eliminados satisfactoriamente',
+  'filmOfTheMonth'=> 'Rollo del mes',
 
 
   #Simon Cardenas

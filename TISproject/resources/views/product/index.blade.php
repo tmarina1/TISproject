@@ -4,22 +4,22 @@
 @section('content')
 
 <div class="text-center">
-<div class="row justify-content-center">
-  <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
-  @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
-  <div class="col-lg-3 mb-2 mt-3">
-    <div class="card">
-      <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
-      <div class="card-body text-center">
-        <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
-          class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
-        <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
-          class="btn text-black"><strong>{{ __('texts.price') }}: {{ $productOfTheMonth->getPrice() }}</strong></a>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 mb-2 mt-3">
+      <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
+      <div class="card">
+        @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
+          <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
+          <div class="card-body text-center">
+            <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
+              class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
+            <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
+              class="btn text-black"><strong>{{ __('texts.price') }}: {{ $productOfTheMonth->getPrice() }}</strong></a>
+          </div>
+        @endforeach
       </div>
     </div>
   </div>
-  @endforeach
-</div>
 </div>
 
 <h4 class="mt-3">{{ __('texts.orderByPrice') }}</h4>
@@ -63,6 +63,17 @@
     </div>
   </div>
   @endforeach
+</div>
+
+<div class="text-center">
+  <div class="row justify-content-center">
+    <h1 id="titlePageProducts" >{{ __('texts.filmOfTheMonth') }} </h1>
+    <div class="col-lg-3 mb-2 mt-3">
+      <div class="card">
+        
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection
