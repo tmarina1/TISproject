@@ -1,5 +1,7 @@
 <?php
 
+#Tomas Marin Aristizabal y Juan Pablo Yepes
+
 namespace App\Http\Controllers;
 
 use App\Models\Item;

@@ -66,3 +66,7 @@ nav {
     width: 350px;
     height: 350px;
 }
+
+#photo {
+    max-height: 100px;
+}

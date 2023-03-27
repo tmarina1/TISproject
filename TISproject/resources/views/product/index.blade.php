@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<h4 class="mt-3">{{ __('texts.orderByPrice') }}</h4>
+<h4 class="mt-3">{{ __('texts.filterByPrice') }}</h4>
 <form method="POST" action="{{ route('product.filter') }}">
   @csrf
   <label><input type="radio" name="price" value="50"> $0 - $50 </label>
@@ -30,7 +30,7 @@
   <label><input type="radio" name="price" value="200" id ="filterPriceItem"> $100 - $200</label>
   <label><input type="radio" name="price" value="300" id ="filterPriceItem"> $200 - $300</label>
   <label><input type="radio" name="price" value="301" id ="filterPriceItem"> $300 - $1000</label>
-  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.sort') }}" />
+  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.filter') }}" />
 </form>
 
 <h4>{{ __('texts.filterByBrand') }}</h4>
@@ -72,8 +72,8 @@
     <div class="card mb-3 mt-5">
       <div class="row g-0">
         @foreach($viewData["images"] as $image)
-          <div class="col-md-2"">
-            <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start">
+          <div class="col-md-3">
+            <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start" >
           </div>
         @endforeach
       </div>

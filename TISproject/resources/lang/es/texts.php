@@ -3,7 +3,7 @@
 return [
     //Tomas Marin
     'namePage' => "Point 'n shoot",
-    'orderByPrice' => 'Ordenar por precio',
+    'filterByPrice' => 'Filtrar por precio',
     'textAboutUs1' => 'Bienvenido a nuestra sección de inicio, donde mostramos una gran variedad de artículos fotográficos que ayudaran a proyectar su imaginación e inspirarán su creatividad. Tanto si eres un fotógrafo experimentado como si acabas de empezar en el mundo de la fotografía, tenemos algo para ti.',
     'textAboutUs2' => 'Nuestra colección incluye cámaras, objetivos, trípodes, equipos de iluminación y otros accesorios de las mejores marcas del sector. Nos enorgullecemos de ofrecer sólo productos de la más alta calidad, por lo que puede estar seguro de que está recibiendo lo mejor de lo mejor.',
     'textAboutUs3' => 'Además de nuestra oferta de productos, también proporcionamos servicio de revelado de rollos 35mm y 120, para los amantes a la fotografía análoga.',
