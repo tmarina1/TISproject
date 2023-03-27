@@ -4,22 +4,22 @@
 @section('content')
 
 <div class="text-center">
-<div class="row justify-content-center">
-  <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
-  @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
-  <div class="col-lg-3 mb-2 mt-3">
-    <div class="card">
-      <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
-      <div class="card-body text-center">
-        <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
-          class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
-        <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
-          class="btn text-black"><strong>{{ __('texts.price') }}: {{ $productOfTheMonth->getPrice() }}</strong></a>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 mb-2 mt-3">
+      <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
+      <div class="card">
+        @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
+          <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
+          <div class="card-body text-center">
+            <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
+              class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
+            <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
+              class="btn text-black"><strong>{{ __('texts.price') }}: {{ $productOfTheMonth->getPrice() }}</strong></a>
+          </div>
+        @endforeach
       </div>
     </div>
   </div>
-  @endforeach
-</div>
 </div>
 
 <h4 class="mt-3">{{ __('texts.orderByPrice') }}</h4>
@@ -30,7 +30,7 @@
   <label><input type="radio" name="price" value="200" id ="filterPriceItem"> $100 - $200</label>
   <label><input type="radio" name="price" value="300" id ="filterPriceItem"> $200 - $300</label>
   <label><input type="radio" name="price" value="301" id ="filterPriceItem"> $300 - $1000</label>
-  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.order') }}" />
+  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.sort') }}" />
 </form>
 
 <h4>{{ __('texts.filterByBrand') }}</h4>
@@ -41,7 +41,7 @@
     <option value="kentmere">Kentmere</option>
     <option value="olympus">Olympus</option>
     <option value="sony">Sony</option>
-    <option value="fujifilm">Fuji film</option>
+    <option value="fujifilm">Fujifilm</option>
     <option value="lomography">Lomography</option>
     <option value="panasonic">Panasonic</option>
     <option value="nikon">Nikon</option>
@@ -64,5 +64,22 @@
   </div>
   @endforeach
 </div>
+
+@if($viewData["images"])
+<div class="text-center mt-5">
+  <div class="row justify-content-center">
+    <h1 id="titlePageProducts" >{{ __('texts.filmOfTheMonth') }} </h1>
+    <div class="card mb-3 mt-5">
+      <div class="row g-0">
+        @foreach($viewData["images"] as $image)
+          <div class="col-md-2"">
+            <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start">
+          </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 
 @endsection

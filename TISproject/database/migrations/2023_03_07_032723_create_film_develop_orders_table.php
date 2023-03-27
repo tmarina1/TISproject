@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filmDevelopOrders', function (Blueprint $table) {
+        Schema::create('film_develop_orders', function (Blueprint $table) {
             $table->id();
             $table->string('referenceFilm');
             $table->string('photo')->default('');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('filmDevelopOrder');
+        Schema::dropIfExists('film_develop_orders');
     }
 };

@@ -43,6 +43,7 @@
   <button onclick="window.location.href='{{ route('product.index') }}'" class="btn bg-primary text-white">{{ __('texts.return') }}</button>
   @auth
   <button onclick="window.location.href='{{ route('review.create', ['id'=> $viewData['product']->getId()]) }}'" class="btn btn-danger text-white">{{ __('texts.makeReview') }}</button>
+  <button onclick="window.location.href='{{ route('wish.save', ['id'=> $viewData['product']->getId()]) }}'" class="btn btn-success text-white">Lista de deseos</button>
   @endauth
 </div>
 @endsection

@@ -6,15 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('balance')->default(1000);
+        Schema::table('film_develop_orders', function (Blueprint $table) {
+            $table->string('photo', 2000)->default('')->change();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        $table->dropColumn(['balance']);
+        //
     }
 };

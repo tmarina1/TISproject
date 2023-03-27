@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('numberOrder');
+        Schema::table('film_develop_orders', function (Blueprint $table) {
+            $table->integer('price')->default(20)->change();
+            $table->boolean('filmOfTheMonth')->default('0');
+            $table->boolean('usePermission')->default('0');
         });
     }
 
@@ -21,5 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
+        //
     }
 };

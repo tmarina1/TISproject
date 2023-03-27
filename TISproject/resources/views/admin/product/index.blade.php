@@ -10,6 +10,8 @@
               <th scope="col">{{ __('texts.id') }}</th> 
               <th scope="col">{{ __('texts.reference') }}</th> 
               <th scope="col">{{ __('texts.brand') }}</th> 
+              <th scope="col">{{ __('texts.price') }}</th> 
+              <th scope="col">{{ __('texts.stock') }}</th> 
               <th scope="col">{{ __('texts.productOfTheMonth') }}</th>
               <th scope="col">{{ __('texts.edit') }}</th> 
               <th scope="col">{{ __('texts.delete') }}</th> 
@@ -21,6 +23,8 @@
               <td>{{ $product->getId() }}</td> 
               <td>{{ $product->getReference() }}</td> 
               <td>{{ $product->getBrand() }}</td> 
+              <td>{{ $product->getPrice() }}</td> 
+              <td>{{ $product->getStock() }}</td> 
               <td>{{ $product->getProductOfTheMonth() }}</td> 
               <td><button onclick="window.location.href='{{ route('admin.product.viewUpdate', ['id'=>$product->getId()]) }}'" class="btn bg-primary text-white">{{ __('texts.edit') }}</button></td> 
               <td>
