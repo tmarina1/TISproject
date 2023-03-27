@@ -24,10 +24,10 @@ class User extends Authenticatable
      * $this->attributes['productInWish'] - int - contains the referenced product id
      * $this->wishList - Products[] - contains the associated products
      * $this->attributes['balance'] - int - contains the user balance
-     * $this->attributes['created_at'] - timestamp - contains the user creation date 
+     * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
      * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
-    */
+     */
     use HasApiTokens, Notifiable;
 
     protected $fillable = [
@@ -62,7 +62,7 @@ class User extends Authenticatable
     {
         $this->attributes['name'] = $name;
     }
-    
+
     public function getLastName(): string
     {
         return $this->attributes['lastName'];
@@ -123,7 +123,7 @@ class User extends Authenticatable
         $this->attributes['userType'] = $type;
     }
 
-    public function reviews() : HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }
@@ -138,7 +138,7 @@ class User extends Authenticatable
         $this->reviews = $reviews;
     }
 
-    public function wishList() : HasMany
+    public function wishList(): HasMany
     {
         return $this->hasMany(Product::class);
     }
@@ -181,13 +181,12 @@ class User extends Authenticatable
     public static function validate(Request $request): void
     {
         $request->validate([
-            "name" => "required|string",
-            "lastName" => "required|string", 
-            "password" => "required|string",
-            "email" => "required|string",
-            "telephone" => "required|string",
-            "address" => "required|string",
+            'name' => 'required|string',
+            'lastName' => 'required|string',
+            'password' => 'required|string',
+            'email' => 'required|string',
+            'telephone' => 'required|string',
+            'address' => 'required|string',
         ]);
     }
-
 }

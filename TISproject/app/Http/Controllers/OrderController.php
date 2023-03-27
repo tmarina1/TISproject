@@ -1,21 +1,19 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
-class OrderController extends Controller 
-{ 
+class OrderController extends Controller
+{
     public function index(): View
     {
         $viewData = [];
         $userId = Auth::user()->getId();
         $orders = Order::all();
-        $orders = $orders->where('user_id','==',$userId);
+        $orders = $orders->where('user_id', '==', $userId);
         $viewData['order'] = $orders;
 
         return view('order.index')->with('viewData', $viewData);

@@ -1,15 +1,13 @@
 <?php
-#Tomas Marin Aristizabal
+
+//Tomas Marin Aristizabal
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
-use App\Models\Review;
-use App\Models\User;
-use App\Models\Item;
 
 class Product extends Model
 {
@@ -27,18 +25,17 @@ class Product extends Model
      * $this->reviews - Review[] - contains the associated reviews
      * $this->users - User[] - contains the associated users
      * $this->items - Item[] - contains the associated items
-     * $this->attributes['createdAt'] - timestamp - contains the product creation date 
+     * $this->attributes['createdAt'] - timestamp - contains the product creation date
      * $this->attributes['updatedAt'] - timestamp - contains the product update date
-    */
-
-    protected $fillable = ['reference','image', 'brand', 'price', 'stock', 'description', 'weight'];
+     */
+    protected $fillable = ['reference', 'image', 'brand', 'price', 'stock', 'description', 'weight'];
 
     public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    public function setId(int $id) : void
+    public function setId(int $id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -48,7 +45,7 @@ class Product extends Model
         return $this->attributes['reference'];
     }
 
-    public function setReference(string $reference) : void
+    public function setReference(string $reference): void
     {
         $this->attributes['reference'] = $reference;
     }
@@ -58,7 +55,7 @@ class Product extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage(string $image) : void
+    public function setImage(string $image): void
     {
         $this->attributes['image'] = $image;
     }
@@ -68,7 +65,7 @@ class Product extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand(string $brand) : void
+    public function setBrand(string $brand): void
     {
         $this->attributes['brand'] = $brand;
     }
@@ -78,7 +75,7 @@ class Product extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice(int $price) : void
+    public function setPrice(int $price): void
     {
         $this->attributes['price'] = $price;
     }
@@ -88,7 +85,7 @@ class Product extends Model
         return $this->attributes['stock'];
     }
 
-    public function setStock(int $stock) : void
+    public function setStock(int $stock): void
     {
         $this->attributes['stock'] = $stock;
     }
@@ -98,7 +95,7 @@ class Product extends Model
         return $this->attributes['description'];
     }
 
-    public function setDescription(string $description) : void
+    public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
     }
@@ -123,7 +120,7 @@ class Product extends Model
         $this->attributes['productOfTheMonth'] = $productOfTheMonth;
     }
 
-    public function reviews() : HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }
@@ -138,7 +135,7 @@ class Product extends Model
         $this->reviews = $reviews;
     }
 
-    public function users() : HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
@@ -154,18 +151,18 @@ class Product extends Model
     }
 
     public function items(): HasMany
-    { 
-        return $this->hasMany(Item::class); 
-    } 
+    {
+        return $this->hasMany(Item::class);
+    }
 
     public function getItems(): Collection
-    { 
-        return $this->items; 
-    } 
+    {
+        return $this->items;
+    }
 
     public function setItems(Collection $items): void
     {
-        $this->items = $items; 
+        $this->items = $items;
     }
 
     public function getCreatedAt(): string
@@ -181,58 +178,61 @@ class Product extends Model
     public static function validate(Request $request): void
     {
         $request->validate([
-            "reference" => "required|string",
-            "image" => "required|image|mimes:jpg,png,jpeg", 
-            "brand" => "required|string",
-            "price" => "required|numeric|gt:0",
-            "stock" => "required|numeric|gt:0",
-            "description" => "required|string",
-            "weight" => "required|gt:0",
+            'reference' => 'required|string',
+            'image' => 'required|image|mimes:jpg,png,jpeg',
+            'brand' => 'required|string',
+            'price' => 'required|numeric|gt:0',
+            'stock' => 'required|numeric|gt:0',
+            'description' => 'required|string',
+            'weight' => 'required|gt:0',
         ]);
     }
 
     public static function validateUpdate(Request $request): void
     {
         $request->validate([
-            "image" => "image|mimes:jpg,png,jpeg", 
-            "price" => "numeric|gt:0",
-            "stock" => "numeric|gt:0",
-            "description" => "string",
+            'image' => 'image|mimes:jpg,png,jpeg',
+            'price' => 'numeric|gt:0',
+            'stock' => 'numeric|gt:0',
+            'description' => 'string',
         ]);
     }
 
-    public static function sumPrices($products, $productsInSession): int 
-    { 
-        $totalProductsInCar = 0; 
-        foreach ($products as $product) 
-        { 
-            $totalProductsInCar = $totalProductsInCar + ($product->getPrice()*$productsInSession[$product->getId()]); 
-        } 
-        return $totalProductsInCar; 
+    public static function sumPrices($products, $productsInSession): int
+    {
+        $totalProductsInCar = 0;
+        foreach ($products as $product) {
+            $totalProductsInCar = $totalProductsInCar + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+
+        return $totalProductsInCar;
     }
-    
+
     public static function validateBalance(int $userId, int $totalPrice): bool
     {
         $userBalance = User::findOrFail($userId)->getBalance();
-        if($userBalance < $totalPrice){
+        if ($userBalance < $totalPrice) {
             return false;
         }
+
         return true;
     }
 
     public static function validateProduct(Request $request): bool
     {
-        $productsInSession = $request->session()->get("products");
-        $productsInCart = Product::findMany(array_keys($productsInSession)); 
-            foreach ($productsInCart as $product) { 
-                $cartQuantity = $productsInSession[$product->getId()]; 
-                $realQuantity = Product::findOrFail($product->getId());
-                if($realQuantity->getStock() < $cartQuantity){
-                    return false;
-                }
+        $productsInSession = $request->session()->get('products');
+        $productsInCart = Product::findMany(array_keys($productsInSession));
+        foreach ($productsInCart as $product) {
+            $cartQuantity = $productsInSession[$product->getId()];
+            $realQuantity = Product::findOrFail($product->getId());
+            if ($realQuantity->getStock() < $cartQuantity) {
+                return false;
             }
-        return true; 
+        }
+
+        return true;
     }
+
     public static function updateStock(int $productId, int $cartQuantity): void
     {
         $productStock = Product::findOrFail($productId);

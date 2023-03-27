@@ -1,10 +1,9 @@
 <?php
-#Tomas Marin Aristizabal
+
+//Tomas Marin Aristizabal
 
 namespace App\Models;
 
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -15,21 +14,20 @@ class Wish extends Model
      * $this->attributes['id'] - int - contains the wish primary key (id)
      * $this->products - Product[] - contains the associated products
      * $this->users - User[] - contains the associated users
-    */
-
+     */
     public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    public function setId(int $id) : void
+    public function setId(int $id): void
     {
         $this->attributes['id'] = $id;
     }
 
     public function getUserId(): int
-    { 
-        return $this->attributes['user_id']; 
+    {
+        return $this->attributes['user_id'];
     }
 
     public function setUserId(int $userId): void
@@ -38,9 +36,9 @@ class Wish extends Model
     }
 
     public function getProductId(): int
-    { 
-        return $this->attributes['product_id']; 
-    } 
+    {
+        return $this->attributes['product_id'];
+    }
 
     public function setProductId(int $productId): void
     {
@@ -69,7 +67,7 @@ class Wish extends Model
 
     public function getUser(): User
     {
-        return $this->user; 
+        return $this->user;
     }
 
     public function setUser($user): void
@@ -86,5 +84,4 @@ class Wish extends Model
     {
         return $this->attributes['updated_at'];
     }
-
 }

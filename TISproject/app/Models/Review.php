@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
@@ -18,10 +17,9 @@ class Review extends Model
      * $this->user - User - contains the associated User
      * $this->attributes['product_id'] - int - contains the referenced user id
      * $this->product - Product - contains the associated Product
-     * $this->attributes['created_at'] - timestamp - contains the review creation date 
+     * $this->attributes['created_at'] - timestamp - contains the review creation date
      * $this->attributes['updated_at'] - timestamp - contains the review update date
-    */
-
+     */
     protected $fillable = [
         'review',
         'rate',
@@ -58,10 +56,10 @@ class Review extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function getUser(): User
     {
-        return $this->user; 
+        return $this->user;
     }
 
     public function setUser(int $uId): void
@@ -76,7 +74,7 @@ class Review extends Model
 
     public function getProduct(): Product
     {
-        return $this->product; 
+        return $this->product;
     }
 
     public function setProduct(int $pId): void
@@ -97,18 +95,18 @@ class Review extends Model
     public static function validate(Request $request): void
     {
         $request->validate([
-            "review" => "required|string",
-            "rate" => "required|integer|min:1|max:5",
-            "user_id" => "required|exists:users,id",
-            "product_id" => "required|exists:products,id",
+            'review' => 'required|string',
+            'rate' => 'required|integer|min:1|max:5',
+            'user_id' => 'required|exists:users,id',
+            'product_id' => 'required|exists:products,id',
         ]);
     }
 
     public static function validateReviewUser(Request $request): void
     {
         $request->validate([
-            "review" => "required|string",
-            "rate" => "required|integer|min:1|max:5",
+            'review' => 'required|string',
+            'rate' => 'required|integer|min:1|max:5',
         ]);
     }
 }
