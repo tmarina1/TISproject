@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('film_develop_orders', function (Blueprint $table) {
-            $table->string('photo', 1000)->default('')->change();
+            $table->string('photo', 2000)->default('')->change();
         });
     }
 

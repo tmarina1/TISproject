@@ -1,5 +1,19 @@
 @extends('layouts.app') 
 @section('content') 
+@if(session('fail'))
+  <div class="card-body">
+    <div class="alert alert-warning" role="alert">
+      {{ __('texts.notEnoughMony') }}
+    </div>
+  </div>
+@endif 
+@if(session('success'))
+  <div class="card-body">
+    <div class="alert alert-success" role="alert">
+      {{ __('texts.orderSuccessful')}}
+    </div>
+  </div>
+@endif
 <div class="card mt-5">
     <div class="card-header">{{ __('texts.filmDevelopOrders') }}</div>
       <div class="card-body">

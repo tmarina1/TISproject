@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FilmDevelopOrder;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,18 +39,27 @@ class FilmDevelopOrderController extends Controller
     public function save(Request $request): RedirectResponse
     {
         FilmDevelopOrder::validate($request);
-        $filmOrder = new FilmDevelopOrder;
-        $filmOrder->setReferenceFilm($request->get('referenceFilm'));
-        if ($request->get('usePermission')) {
-            $filmOrder->setUsePermission($request->get('usePermission'));
-        }
-        $filmOrder->setUserId(Auth::user()->getId());
-        $filmOrder->save();
         $totalPrice = 20;
-        $newBalance = Auth::user()->getBalance() - $totalPrice;
-        Auth::user()->setBalance($newBalance);
-        Auth::user()->save();
+        $userId = Auth::user()->getId();
+        if (Product::validateBalance($userId, $totalPrice)){
+            $filmOrder = new FilmDevelopOrder;
+            $filmOrder->setReferenceFilm($request->get('referenceFilm'));
+            if ($request->get('usePermission')) {
+                $filmOrder->setUsePermission($request->get('usePermission'));
+            }
+            $filmOrder->setUserId(Auth::user()->getId());
+            $filmOrder->save();
 
-        return back();
+            $newBalance = Auth::user()->getBalance() - $totalPrice;
+            Auth::user()->setBalance($newBalance);
+            Auth::user()->save();
+
+            return back()->with('success', 1);
+        }else
+        {
+            return back()->with('fail', 1);
+        }
+
+        
     }
 }

@@ -4,7 +4,7 @@
 @if(session('fail'))
   <div class="card-body">
     <div class="alert alert-warning" role="alert">
-      No tienes saldo suficiente
+      {{ __('texts.notEnoughMony') }}
     </div>
   </div>
 @endif 

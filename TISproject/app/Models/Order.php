@@ -12,7 +12,6 @@ class Order extends Model
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['numberOrder'] - string - contains the order reference film
      * $this->attributes['totalPrice'] - int - contains the film develop order price
      * $this->attributes['state'] - boolean - contains the order state
      * $this->attributes['user_id'] - int - contains the referenced user id

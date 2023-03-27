@@ -11,7 +11,7 @@
 <div class="card">
 <div class="card mb-4">
    <div class="card-header">
-    {{ __('texts.order')}} # {{ $viewData['order']->getId() }}
+   {{ __('texts.order')}} # {{ $viewData['order']->getId() }}
    </div>
    <div class="card-body">
       <b>{{ __('texts.createdAt')}}</b> {{ $viewData['order']->getCreatedAt() }}<br />

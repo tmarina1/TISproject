@@ -74,6 +74,7 @@ return [
     'productsRemoveSuccessfully' => 'Productos eliminados satisfactoriamente',
     'filmOfTheMonth' => 'Rollo del mes',
     'sort' => 'Ordenar',
+    'notEnoughMony' => 'No tienes saldo suficiente',
 
     //Simon Cardenas
     'nameRegister' => 'Nombre',
