@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class wishController extends Controller
+class WishController extends Controller
 {
     public function index(): View
     {
