@@ -7,7 +7,7 @@
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <a href="{{ route('filmOrder.show', ['id'=> $orders->getId()]) }}" class="btn bg-primary text-white"><strong>{{ __('texts.id') }}: {{ $orders->getId() }} </strong></a>
+        <a href="{{ route('filmOrder.show', ['id'=> $orders->getId()]) }}" class="btn bg-primary text-white"><strong>{{ __('texts.order') }} #{{ $orders->getId() }} </strong></a>
         <p class="card-text mt-3">{{ __('texts.reference') }}: {{ $orders->getReferenceFilm() }}</p>
       </div>
     </div>

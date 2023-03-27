@@ -34,12 +34,17 @@ class CartController extends Controller
     {
         $product = Product::find($id);
         $products = $request->session()->get('products');
-        if ($request->get('quantity') >= $product->getStock()) {
+        
+        if($product->getStock() == 0) {
+
+        }elseif ($request->get('quantity') >= $product->getStock()) {
             $products[$id] = $product->getStock();
-        } else {
+            $request->session()->put('products', $products);
+            
+        }else{
             $products[$id] = $request->input('quantity');
+            $request->session()->put('products', $products);
         }
-        $request->session()->put('products', $products);
 
         return redirect()->route('cart.index')->with('addProduct', 1);
     }

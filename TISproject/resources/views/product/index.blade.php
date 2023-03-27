@@ -65,15 +65,21 @@
   @endforeach
 </div>
 
-<div class="text-center">
+@if($viewData["images"])
+<div class="text-center mt-5">
   <div class="row justify-content-center">
     <h1 id="titlePageProducts" >{{ __('texts.filmOfTheMonth') }} </h1>
-    <div class="col-lg-3 mb-2 mt-3">
-      <div class="card">
-        
+    <div class="card mb-3 mt-5">
+      <div class="row g-0">
+        @foreach($viewData["images"] as $image)
+          <div class="col-md-2"">
+            <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start">
+          </div>
+        @endforeach
       </div>
     </div>
   </div>
 </div>
+@endif
 
 @endsection

@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\FilmDevelopOrder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -15,10 +16,15 @@ class ProductController extends Controller
         $viewData = [];
         $product = Product::all();
         $productOfTheMonth = Product::where('productOfTheMonth', true)->get();
+        $filmOfTheMonth = FilmDevelopOrder::where('filmOfTheMonth', true)->where('usePermission', true)->get()->first();
         $viewData['title'] = __('texts.titleProductsIndex');
         $viewData['subtitle'] = __('texts.subtitleProductsIndex');
         $viewData['product'] = $product;
         $viewData['productOfTheMonth'] = $productOfTheMonth;
+        $viewData['images'] = [];
+        if($filmOfTheMonth){
+            $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
+        }
 
         return view('product.index')->with('viewData', $viewData);
     }
@@ -38,6 +44,11 @@ class ProductController extends Controller
         $viewData['title'] = __('texts.titleProductsIndex');
         $viewData['subtitle'] = __('texts.subtitleProductsIndex');
         $viewData['productOfTheMonth'] = Product::where('productOfTheMonth', true)->get();
+        $filmOfTheMonth = FilmDevelopOrder::where('filmOfTheMonth', true)->where('usePermission', true)->get()->first();
+        $viewData['images'] = [];
+        if($filmOfTheMonth){
+            $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
+        }
 
         if ($request->get('price') == 50) {
             $viewData['product'] = Product::whereBetween('price', [0, $request->get('price')])->get();
@@ -61,6 +72,11 @@ class ProductController extends Controller
         $viewData['subtitle'] = __('texts.subtitleProductsIndex');
         $viewData['product'] = Product::where('brand', $request->get('brands'))->get();
         $viewData['productOfTheMonth'] = Product::where('productOfTheMonth', true)->get();
+        $filmOfTheMonth = FilmDevelopOrder::where('filmOfTheMonth', true)->where('usePermission', true)->get()->first();
+        $viewData['images'] = [];
+        if($filmOfTheMonth){
+            $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
+        }
 
         return view('product.index')->with('viewData', $viewData);
     }

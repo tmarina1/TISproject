@@ -12,7 +12,7 @@
         @endif
         <form method="POST" action="{{ route('filmOrder.save') }}" enctype="multipart/form-data">
           @csrf
-          <input type="text" class="form-control mb-2" placeholder="{{ __('texts.reference') }}" name="reference" value="{{ old('reference') }}" required/>
+          <input type="text" class="form-control mb-2" placeholder="{{ __('texts.reference') }}" name="referenceFilm" value="{{ old('reference') }}" required/>
           <label  class="form-control mb-2"><input type="checkbox"  name="usePermission" /> {{ __('texts.usePermissionWarning') }}</label>
           <input type="submit" class="btn bg-primary text-white" value="Crear Orden" />
         </form>

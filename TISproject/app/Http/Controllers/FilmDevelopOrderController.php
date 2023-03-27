@@ -39,7 +39,7 @@ class FilmDevelopOrderController extends Controller
     {
         FilmDevelopOrder::validate($request);
         $filmOrder = new FilmDevelopOrder;
-        $filmOrder->setReferenceFilm($request->get('reference'));
+        $filmOrder->setReferenceFilm($request->get('referenceFilm'));
         if ($request->get('usePermission')) {
             $filmOrder->setUsePermission($request->get('usePermission'));
         }

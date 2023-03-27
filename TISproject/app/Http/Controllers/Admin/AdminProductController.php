@@ -43,8 +43,9 @@ class AdminProductController extends Controller
 
     public function viewUpdate(string $id): View
     {
+        $product = Product::findOrFail($id);
         $viewData = [];
-        $viewData['id'] = $id;
+        $viewData['product'] = $product;
 
         return view('admin.product.viewUpdate')->with('viewData', $viewData);
     }
@@ -59,10 +60,11 @@ class AdminProductController extends Controller
             $storeImage = new ImageStorage();
             $product->setImage($storeImage->store($request));
         }
-
+        
         $product->setPrice($request->get('price'));
         $product->setStock($request->get('stock'));
         $product->setDescription($request->get('description'));
+        
         if ($productOfTheMonth == 'add') {
             $product->setProductOfTheMonth('1');
         } else {
