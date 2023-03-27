@@ -41,7 +41,7 @@ return [
   'adminReviews' => 'Reseñas',
   'backToProductsPage' => 'Vista usuario',
   'editProduct' => 'Editar producto',
-  'order' => 'Ordenar',
+  'order' => 'Orden',
   'filter' => 'Filtrar',
   'addToProductOfTheMonth' => 'Agregar como producto del mes',
   'removeToProductOfTheMonth' => 'Quitar como producto del mes',
@@ -72,6 +72,7 @@ return [
   'productRemoveSuccessfully' => 'Producto eliminado satisfactoriamente',
   'productsRemoveSuccessfully' => 'Productos eliminados satisfactoriamente',
   'filmOfTheMonth'=> 'Rollo del mes',
+  'sort'=>'Ordenar',
 
 
   #Simon Cardenas
@@ -103,4 +104,19 @@ return [
 
   #Juan Pablo Yepes
   "orderSuccessful" =>'Orden completada satisfactoriamente!',
+  "filmDevelopedOrders"=>'Ordenes reveladas',
+  "addFilmMonth"=>'Añadir rollo del mes',
+  "removeFilmMonth"=>'Remover rollo del mes',
+  "state"=>'Estado',
+  "userPermission"=>'Permiso de usuario',
+  "filmDevelopOrders"=>'Ordenes de revelado',
+  "createOrder"=>'Crear Orden',
+  "total"=>'Total',
+  "photos"=>'Fotos',
+  "usePermissionWarning"=>'¿Desea que su rollo sea nominado a el rollo del mes?',
+  "images"=>'Imagenes',
+  "observations"=>'Observaciones',
+  "updateDevelopOrder"=>"Actualizar orden de revelado",
+  "itemId"=>'Id del artículo'
+
 ];

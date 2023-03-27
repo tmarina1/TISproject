@@ -30,7 +30,7 @@
   <label><input type="radio" name="price" value="200" id ="filterPriceItem"> $100 - $200</label>
   <label><input type="radio" name="price" value="300" id ="filterPriceItem"> $200 - $300</label>
   <label><input type="radio" name="price" value="301" id ="filterPriceItem"> $300 - $1000</label>
-  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.order') }}" />
+  <input type="submit" class="btn bg-primary text-white" id="buttonOrderByPrice" value="{{ __('texts.sort') }}" />
 </form>
 
 <h4>{{ __('texts.filterByBrand') }}</h4>

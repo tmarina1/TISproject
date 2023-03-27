@@ -32,12 +32,21 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
     Route::post('/admin/reviews/saveUpdate/{id}', 'App\Http\Controllers\Admin\AdminReviewController@saveUpdate')->name("admin.review.saveUpdate");
 
+    Route::get('/admin/filmOrder', 'App\Http\Controllers\Admin\AdminDevelopOrderController@index')->name("admin.filmOrder.index");
+    Route::get('/admin/filmOrder/update/{id}', 'App\Http\Controllers\Admin\AdminDevelopOrderController@update')->name("admin.filmOrder.update");
+    Route::post('/admin/filmOrder/saveUpdate/{id}', 'App\Http\Controllers\Admin\AdminDevelopOrderController@saveUpdate')->name("admin.filmOrder.saveUpdate");
+
 });
 #Juan Pablo
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase"); 
 Route::middleware('auth')->group(function () { 
     Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
-    Route::get('/order', 'App\Http\Controllers\OrderController@index')->name("order.index"); 
+    Route::get('/order', 'App\Http\Controllers\OrderController@index')->name("order.index");
+
+    Route::get('/filmOrder', 'App\Http\Controllers\FilmDevelopOrderController@index')->name("filmOrder.index");
+    Route::get('/filmOrder/show/{id}', 'App\Http\Controllers\FilmDevelopOrderController@show')->name("filmOrder.show");
+    Route::get('/filmOrder/create', 'App\Http\Controllers\FilmDevelopOrderController@create')->name("filmOrder.create"); 
+    Route::post('/filmOrder/save', 'App\Http\Controllers\FilmDevelopOrderController@save')->name("filmOrder.save");
 }); 
 
 #Simon

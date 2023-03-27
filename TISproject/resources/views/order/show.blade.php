@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Purchase')
 @section('content')
 
 @if(session('success'))
@@ -12,18 +11,18 @@
 <div class="card">
 <div class="card mb-4">
    <div class="card-header">
-      Order #{{ $viewData['order']->getId() }}
+    {{ __('texts.order')}} # {{ $viewData['order']->getId() }}
    </div>
    <div class="card-body">
-      <b>Date:</b> {{ $viewData['order']->getCreatedAt() }}<br />
-      <b>Total:</b> ${{ $viewData['order']->getTotalPrice() }}<br />
+      <b>{{ __('texts.createdAt')}}</b> {{ $viewData['order']->getCreatedAt() }}<br />
+      <b>{{ __('texts.total')}}</b> ${{ $viewData['order']->getTotalPrice() }}<br />
       <table class="table table-bordered table-striped text-center mt-3">
          <thead>
             <tr>
-            <th scope="col">Item ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">{{ __('texts.itemId')}}</th>
+            <th scope="col">{{ __('texts.reference')}}</th>
+            <th scope="col">{{ __('texts.price')}}</th>
+            <th scope="col">{{ __('texts.quantity')}}</th>
             </tr>
          </thead>
          <tbody>

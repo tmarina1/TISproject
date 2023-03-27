@@ -96,13 +96,17 @@ class FilmDevelopOrder extends Model
     {
         return $this->user; 
     }
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
     }
     public function getCreatedAt(): string
     {
-        return $this->attributes['date'];
+        return $this->attributes['created_at'];
     }
     public function getUpdatedAt(): string
     {
@@ -111,8 +115,7 @@ class FilmDevelopOrder extends Model
     public static function validate($request) 
     { 
         $request->validate([
-            "referenceFilm" => "required",
-            "price" => "required|numeric",
+            "referenceFilm" => "required|string",
         ]); 
     }
 }

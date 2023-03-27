@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('filmDevelopOrders', function (Blueprint $table) {
-            $table->integer('price')->default(20)->change();
-            $table->boolean('filmOfTheMonth')->default('0');
-            $table->boolean('usePermission')->default('0');
+        Schema::table('film_develop_orders', function (Blueprint $table) {
+            $table->string('photo',1000)->default('')->change();
         });
     }
 
