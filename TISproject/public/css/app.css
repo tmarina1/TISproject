@@ -68,15 +68,14 @@ nav {
 }
 
 .containerImg {
-   width: 100% !important;
-   height: 100% !important;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #space {
-    margin: 2px !important;
 }
-#photo{
+#photo {
     max-height: 200px;
 }

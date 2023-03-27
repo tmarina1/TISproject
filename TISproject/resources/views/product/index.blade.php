@@ -74,7 +74,7 @@
         @foreach($viewData["images"] as $image)
           <div class="col-md-3" id="space">
             <div class="containerImg">
-              <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start" id="photo">
+              <img src="{{ URL::asset('storage/'.$image) }}" class="img-thumbnail rounded-start" id="photo">
             </div>
           </div>
         @endforeach
