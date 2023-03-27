@@ -68,5 +68,9 @@ nav {
 }
 
 #photo {
-    max-height: 100px;
+   width: 100% !important;
+   height: 100% !important;
+}
+#space {
+    margin: 5px !important;
 }
