@@ -17,5 +17,17 @@ class ImageStorage
           return $imageName;
         }
     }
+    public function multipleStore(Request $request): string
+    {
+      $files = [];
+      foreach($request->file('image') as $image)
+      {
+        $imageName =  "img/filmOrder/".time().$image->getClientOriginalName();
+        Storage::disk('public')->put($imageName,  File::get($image));
+        $files[] = $imageName;
+      }
+      $namesTogether = implode(",",$files);
+      return $namesTogether;
+    }
 }
 

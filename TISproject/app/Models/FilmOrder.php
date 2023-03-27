@@ -17,11 +17,13 @@ class FilmDevelopOrder extends Model
      * $this->attributes['price'] - int - contains the film develop order price
      * $this->attributes['state'] - boolean - contains the order state
      * $this->attributes['observation'] - string - contains the order observations
+     * $this->attributes['filmOfTheMonth'] - boolean - contains the film of the month
+     * $this->attributes['usePermission'] - boolean - contains the user authorization to use their film
      * $this->attributes['created_at'] - timestamp - contains the review creation date
      * $this->attributes['user_id'] - int - contains the referenced user id
      * $this->user - User - contains the associated User
     */
-    protected $fillable = ['referenceFilm','photo','price','state','observation'];
+    protected $fillable = ['referenceFilm','photo','price','state','observation', 'filmOfTheMonth','usePermission'];
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -69,6 +71,22 @@ class FilmDevelopOrder extends Model
     public function setObservation(string $observation) : void
     {
         $this->attributes['observation'] = $observation;
+    }
+    public function getFilmOfTheMonth(): bool
+    {
+        return $this->attributes['filmOfTheMonth'];
+    }
+    public function setFilmOfTheMonth(bool $filmOfTheMonth) : void
+    {
+        $this->attributes['filmOfTheMonth'] = $filmOfTheMonth;
+    }
+    public function getUsePermission(): bool
+    {
+        return $this->attributes['usePermission'];
+    }
+    public function setUsePermission(bool $usePermission) : void
+    {
+        $this->attributes['usePermission'] = $usePermission;
     }
     public function user(): BelongsTo
     {
