@@ -13,8 +13,10 @@
       <div class="row g-0">
         @foreach($viewData["images"] as $image)
           <div class="col-md-3" id="space">
+          <div class="containerImg">
             <img src="{{ URL::asset('storage/'.$image) }}" class="img-fluid rounded-start" id="photo">
           </div>
+          </>
         @endforeach
       </div>
     </div>

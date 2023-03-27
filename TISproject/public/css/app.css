@@ -67,10 +67,16 @@ nav {
     height: 350px;
 }
 
-#photo {
+.containerImg {
    width: 100% !important;
    height: 100% !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 #space {
-    margin: 5px !important;
+    margin: 2px !important;
+}
+#photo{
+    max-height: 200px;
 }
