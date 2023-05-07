@@ -84,4 +84,13 @@
 </div>
 @endif
 
+<div>
+  <h1 class="text-center mb-4 mt-5" id="titlePageProducts">{{ __('texts.placesToTakePhotos') }}</h1>
+  <div id="map"></div>
+  <script src="{{ asset('js/maps.js') }}"></script>
+  <script defer
+    src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap">
+  </script>
+</div>
+
 @endsection

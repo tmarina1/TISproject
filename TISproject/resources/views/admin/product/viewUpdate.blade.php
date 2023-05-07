@@ -16,9 +16,13 @@
 
             <form method="POST" action="{{ route('admin.product.update', ['id'=>$viewData["product"]->getId()]) }}" enctype="multipart/form-data">
               @csrf
+              <label class="mb-2"><strong>{{ __('texts.imageRegister') }}:</strong></label>
               <input type="file" class="form-control mb-2" placeholder="{{ __('texts.imageRegister') }}" name="image" />
+              <label class="mb-2"><strong>{{ __('texts.priceRegister') }}:</strong></label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.priceRegister') }}" name="price" value="{{$viewData["product"]->getPrice()}}" required/>
+              <label class="mb-2"><strong>{{ __('texts.stockRegister') }}:</strong></label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.stockRegister') }}" name="stock" value="{{$viewData["product"]->getStock()}}" required/>
+              <label class="mb-2"><strong>{{ __('texts.descriptionRegister') }}:</strong></label>
               <input type="text" class="form-control mb-2" placeholder="{{ __('texts.descriptionRegister') }}" name="description" value="{{$viewData["product"]->getDescription()}}" required/>
               <label class="form-control mb-2"><input type="radio" name="productOfTheMonth" value="add" >{{ __('texts.addToProductOfTheMonth') }}</label>
               <label class="form-control mb-2"><input type="radio" name="productOfTheMonth" value="remove">{{ __('texts.removeToProductOfTheMonth') }}</label>

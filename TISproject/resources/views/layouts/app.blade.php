@@ -37,6 +37,16 @@
               @csrf 
             </form> 
           @endguest
+          <div class="dropdown">
+            <button class="btn bg-primary text-white dropdown-toggle" type="button" id="dropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ __("Choose a language") }}
+            </button>
+            <div class="dropdown-menu" >
+                <a class="dropdown-item" href="{{route('setLanguage', ['es'])}}">{{ __("Spanish") }}</a>
+                <a class="dropdown-item" href="{{route('setLanguage', ['en'])}}">{{ __("English") }}</a>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>

@@ -16,8 +16,7 @@ class WishController extends Controller
     {
         $viewData = [];
         $userId = Auth::user()->getId();
-        $wish = Wish::all();
-        $wish = $wish->where('user_id', '==', $userId);
+        $wish = Wish::where('user_id', $userId)->get();
         $viewData['wish'] = $wish;
 
         return view('wish.index')->with('viewData', $viewData);
@@ -27,8 +26,7 @@ class WishController extends Controller
     {
         $userId = Auth::user()->getId();
 
-        $wish = Wish::all();
-        $wishExist = $wish->where('user_id', '==', $userId)->where('product_id', '==', $productId)->first();
+        $wishExist = Wish::where('user_id', $userId)->where('product_id', $productId)->first();
 
         if ($wishExist == null) {
             $wish = new Wish;

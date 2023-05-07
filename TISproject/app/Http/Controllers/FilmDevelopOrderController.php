@@ -17,8 +17,7 @@ class FilmDevelopOrderController extends Controller
     {
         $viewData = [];
         $userId = Auth::user()->getId();
-        $orders = FilmDevelopOrder::all();
-        $orders = $orders->where('user_id', '==', $userId);
+        $orders = FilmDevelopOrder::where('user_id', $userId)->get();
         $viewData['order'] = $orders;
 
         return view('filmOrder.index')->with('viewData', $viewData);

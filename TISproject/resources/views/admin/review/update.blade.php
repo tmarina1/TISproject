@@ -15,9 +15,13 @@
             @endif
             <form method="POST" action="{{ route('admin.review.saveUpdate', ['id'=>$viewData["review"]->getId()]) }}" enctype="multipart/form-data">
               @csrf
+              <label class="mb-2"><strong>{{ __('texts.review') }}:</strong></label>
               <input type="text" class="form-control mb-2" placeholder="{{ __('texts.review') }}" name="review" value="{{ old('review') }}" required/>
+              <label class="mb-2"><strong>{{ __('texts.rate') }}:</strong></label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.rate') }}" name="rate" value="{{ old('rate') }}" required/>
+              <label class="mb-2"><strong>{{ __('texts.userId') }}:</strong></label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.userId') }}" name="user_id" value="{{ $viewData["review"]->getUser()->getId() }}" required/>
+              <label class="mb-2"><strong>{{ __('texts.productId') }}:</strong></label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('texts.productId') }}" name="product_id" value="{{ $viewData["review"]->getProduct()->getId() }}" required/>
               <input type="submit" class="btn bg-primary text-white" value="{{ __('texts.saveReview') }}" />
             </form>

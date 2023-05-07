@@ -14,6 +14,8 @@ class Wish extends Model
      * $this->attributes['id'] - int - contains the wish primary key (id)
      * $this->products - Product[] - contains the associated products
      * $this->users - User[] - contains the associated users
+     * $this->attributes['created_at'] - timestamp - contains the review creation date
+     * $this->attributes['updated_at'] - timestamp - contains the review update date
      */
     public function getId(): int
     {

@@ -74,8 +74,13 @@ nav {
     justify-content: center;
     align-items: center;
 }
-#space {
-}
+
 #photo {
     max-height: 200px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    background-color: grey;
 }

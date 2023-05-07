@@ -75,6 +75,7 @@ return [
     'filmOfTheMonth' => 'Rollo del mes',
     'sort' => 'Ordenar',
     'notEnoughMony' => 'No tienes saldo suficiente',
+    'placesToTakePhotos' => 'Algunos lugares para tomar fotos en Medellin',
 
     //Simon Cardenas
     'nameRegister' => 'Nombre',

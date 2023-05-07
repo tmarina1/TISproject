@@ -20,6 +20,7 @@ class FilmDevelopOrder extends Model
      * $this->attributes['filmOfTheMonth'] - boolean - contains the film of the month
      * $this->attributes['usePermission'] - boolean - contains the user authorization to use their film
      * $this->attributes['created_at'] - timestamp - contains the review creation date
+     * $this->attributes['updated_at'] - timestamp - contains the product update date
      * $this->attributes['user_id'] - int - contains the referenced user id
      * $this->user - User - contains the associated User
      */

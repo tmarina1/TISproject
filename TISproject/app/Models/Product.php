@@ -25,8 +25,8 @@ class Product extends Model
      * $this->reviews - Review[] - contains the associated reviews
      * $this->users - User[] - contains the associated users
      * $this->items - Item[] - contains the associated items
-     * $this->attributes['createdAt'] - timestamp - contains the product creation date
-     * $this->attributes['updatedAt'] - timestamp - contains the product update date
+     * $this->attributes['created_at'] - timestamp - contains the product creation date
+     * $this->attributes['updated_at'] - timestamp - contains the product update date
      */
     protected $fillable = ['reference', 'image', 'brand', 'price', 'stock', 'description', 'weight'];
 
