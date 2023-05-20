@@ -40,6 +40,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/filmOrder/saveUpdate/{id}', 'App\Http\Controllers\Admin\AdminDevelopOrderController@saveUpdate')->name('admin.filmOrder.saveUpdate');
 });
 //Juan Pablo
+Route::get('/bombs', 'App\Http\Controllers\Api\ApiController@getBombs')->name('getBombs');
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
 Route::middleware('auth')->group(function () {
     Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
