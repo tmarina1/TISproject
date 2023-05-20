@@ -77,6 +77,8 @@ return [
     'sort' => 'Sort',
     'notEnoughMony' => 'You do not have enough balance',
     'placesToTakePhotos' => 'Some places to take photos in Medellín',
+    'myAccount' => 'My account',
+    'balance' => 'Balance',
     
     //Simon Cardenas
     'nameRegister' => 'Name',

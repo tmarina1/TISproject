@@ -84,3 +84,7 @@ nav {
     width: 100%;
     background-color: grey;
 }
+
+#dropdown1 {
+    width: 120px;
+}

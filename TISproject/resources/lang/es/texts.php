@@ -76,6 +76,8 @@ return [
     'sort' => 'Ordenar',
     'notEnoughMony' => 'No tienes saldo suficiente',
     'placesToTakePhotos' => 'Algunos lugares para tomar fotos en Medellin',
+    'myAccount' => 'Mi cuenta',
+    'balance' => 'Balance',
 
     //Simon Cardenas
     'nameRegister' => 'Nombre',

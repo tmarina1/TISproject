@@ -31,6 +31,7 @@
             <a class="nav-link active" href="{{ route('cart.index')}}">{{ __('texts.car') }}</a>
             <a class="nav-link active" href="{{ route('order.index')}}">{{ __('texts.orders') }}</a>
             <a class="nav-link active" href="{{ route('filmOrder.index')}}">{{ __('texts.filmDevelopedOrders') }}</a>
+            <a class="nav-link active" href="{{ route('home.myAccount')}}">{{ __('texts.myAccount') }}</a>
             <div class="vr bg-white mx-2 d-none d-lg-block"></div> 
             <form id="logout" action="{{ route('logout') }}" method="POST"> 
               <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">{{ __('texts.logOut') }}</a> 

@@ -18,7 +18,7 @@ Route::get('/wish/save/{id}', 'App\Http\Controllers\WishController@save')->name(
 Route::get('/wish/delete/{id}', 'App\Http\Controllers\WishController@delete')->name('wish.delete');
 
 Route::get('/setLanguage/{lang}', [App\Http\Controllers\Controller::class, 'setLanguage'])->name('setLanguage');
-
+Route::get('/myAccount', 'App\Http\Controllers\HomeController@myAccount')->name('home.myAccount');
 
 //Admin restricted routes
 Route::middleware('admin')->group(function () {
