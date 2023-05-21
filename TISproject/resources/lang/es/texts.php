@@ -121,4 +121,12 @@ return [
     'updateDevelopOrder' => 'Actualizar orden de revelado',
     'itemId' => 'Id del artículo',
 
+    'bombName' => 'Nombre de la bomba: ',
+    'bombType' => 'Tipo de bomba: ',
+    'bombPrice' => 'Precio: ',
+    'bombLocationCountry' => 'Ubicación (País): ',
+    'bombManufacturingCountry' => 'País de manufactura: ',
+    'bombStock' => 'Stock: ',
+    'bombDestructionPower' => 'Poder de destrucción: ',
+
 ];

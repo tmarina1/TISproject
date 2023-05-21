@@ -15,7 +15,8 @@ class ApiController extends Controller
             $data = $response->json();
 
             // Procesa la respuesta de la API como desees
-            return $data;
+            //return $data;
+            return view('api.consumeApi')->with('viewData', $data);
         } else {
             abort($response->status());
         }
