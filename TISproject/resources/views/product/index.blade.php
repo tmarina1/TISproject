@@ -65,6 +65,13 @@
   @endforeach
 </div>
 
+<div>
+  <h1 id="titlePageProducts" class="text-center mt-3">{{ __('texts.bombs') }} </h1>
+  <div class="containerImg mt-5">
+    <a title="bombs" href="{{ route('getBombs') }}"><img src="{{ URL::asset('/img/nukeStore.png') }}" class="img-thumbnail rounded-start bg-black" id="photo"></a>
+  </div>
+</div>
+
 @if($viewData["images"])
 <div class="text-center mt-5">
   <div class="row justify-content-center">

@@ -78,6 +78,8 @@ return [
     'placesToTakePhotos' => 'Algunos lugares para tomar fotos en Medellin',
     'myAccount' => 'Mi cuenta',
     'balance' => 'Balance',
+    'bombs' => 'Mira el catalogo de bombas de Nukestore',
+    'infoNukeStore' => 'Para más información visita el siguiente link',
 
     //Simon Cardenas
     'nameRegister' => 'Nombre',

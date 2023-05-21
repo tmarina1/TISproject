@@ -79,6 +79,8 @@ return [
     'placesToTakePhotos' => 'Some places to take photos in Medellín',
     'myAccount' => 'My account',
     'balance' => 'Balance',
+    'bombs' => 'Look at the Nukestore bombs catalog',
+    'infoNukeStore' => 'For more information visit the following link',
     
     //Simon Cardenas
     'nameRegister' => 'Name',
