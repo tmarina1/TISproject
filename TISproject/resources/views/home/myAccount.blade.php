@@ -13,6 +13,7 @@
         <p class="card-text"><strong>{{ __('texts.telephoneRegister') }}</strong>: {{ $viewData["user"]->getTelephone() }}</p>
         <p class="card-text"><strong>{{ __('texts.addressRegister') }}</strong>: {{ $viewData["user"]->getAddress() }}</p>
         <p class="card-text"><strong>{{ __('texts.balance') }}</strong>: {{ $viewData["user"]->getBalance() }}</p>
+        <a class="btn bg-primary text-white" href="{{ route('wish.index')}}">{{ __('texts.wishes') }}</a>
       </div>
     </div>
   </div>

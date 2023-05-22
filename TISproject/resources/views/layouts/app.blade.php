@@ -27,7 +27,6 @@
             <a class="nav-link active" href="{{ route('login') }}">{{ __('texts.logIn') }}</a> 
             <a class="nav-link active" href="{{ route('register') }}">{{ __('texts.register') }}</a> 
           @else 
-            <a class="nav-link active" href="{{ route('wish.index')}}">{{ __('texts.wishes') }}</a>
             <a class="nav-link active" href="{{ route('cart.index')}}">{{ __('texts.car') }}</a>
             <a class="nav-link active" href="{{ route('order.index')}}">{{ __('texts.orders') }}</a>
             <a class="nav-link active" href="{{ route('filmOrder.index')}}">{{ __('texts.filmDevelopedOrders') }}</a>
