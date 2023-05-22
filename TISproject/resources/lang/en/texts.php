@@ -81,6 +81,7 @@ return [
     'balance' => 'Balance',
     'bombs' => 'Look at the Nukestore bombs catalog',
     'infoNukeStore' => 'For more information visit the following link',
+    'salePhotographicItems' => 'sale of photographic items',
     
     //Simon Cardenas
     'nameRegister' => 'Name',

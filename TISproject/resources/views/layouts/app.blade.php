@@ -54,7 +54,7 @@
 
   <header class="masthead bg-primary text-white text-center py-2">
     <div class="container d-flex align-items-center flex-column">
-      <h2>@yield('subtitle', 'Venta de articulos fotograficos')</h2>
+      <h2>@yield('subtitle', '')</h2>
     </div>
   </header>
   <!-- header -->

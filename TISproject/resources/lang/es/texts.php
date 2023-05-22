@@ -80,6 +80,7 @@ return [
     'balance' => 'Balance',
     'bombs' => 'Mira el catalogo de bombas de Nukestore',
     'infoNukeStore' => 'Para más información visita el siguiente link',
+    'salePhotographicItems' => 'Venta de artículos fotográficos',
 
     //Simon Cardenas
     'nameRegister' => 'Nombre',
