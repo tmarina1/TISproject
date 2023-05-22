@@ -122,4 +122,12 @@ return [
     'updateDevelopOrder' => 'Update develop order',
     'itemId' => 'Item ID',
 
+    'bombName' => 'Nuclear bomb name: ',
+    'bombType' => 'Nuclear bomb type: ',
+    'bombPrice' => 'Price: ',
+    'bombLocationCountry' => 'Location (Country): ',
+    'bombManufacturingCountry' => 'Country of manufacture: ',
+    'bombStock' => 'Stock: ',
+    'bombDestructionPower' => 'Power of destruction: ',
+
 ];
