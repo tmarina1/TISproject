@@ -9,7 +9,7 @@
       <h1 id="titlePageProducts" > {{ __('texts.productOfTheMonth') }} </h1>
       <div class="card">
         @foreach ($viewData["productOfTheMonth"] as $productOfTheMonth)
-          <img src="{{ URL::asset('storage/'.$productOfTheMonth->getImage()) }}" class="card-img-top img-card">
+          <img src="{{ $productOfTheMonth->getImage() }}" class="card-img-top img-card">
           <div class="card-body text-center">
             <a href="{{ route('product.show', ['id'=> $productOfTheMonth->getId()]) }}"
               class="btn bg-primary text-white"><strong>{{ $productOfTheMonth->getBrand() }}</strong> : {{ $productOfTheMonth->getReference() }}</a>
@@ -55,7 +55,7 @@
   @foreach ($viewData["product"] as $product)
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
-      <img src="{{ URL::asset('storage/'.$product->getImage()) }}" class="card-img-top img-card">
+      <img src="{{ $product->getImage() }}" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn bg-primary text-white"><strong>{{ $product->getBrand() }}</strong> : {{ $product->getReference() }}</a>
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn text-black"><strong>{{ __('texts.price') }}: {{ $product->getPrice() }}</strong></a>
@@ -63,6 +63,13 @@
     </div>
   </div>
   @endforeach
+</div>
+
+<div>
+  <h1 id="titlePageProducts" class="text-center mt-3">{{ __('texts.bombs') }} </h1>
+  <div class="containerImg mt-5">
+    <a title="bombs" href="{{ route('getBombs') }}"><img src="{{ URL::asset('/img/nukeStore.png') }}" class="img-thumbnail rounded-start bg-black" id="photo"></a>
+  </div>
 </div>
 
 @if($viewData["images"])

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\FilmDevelopOrder;
-use App\Util\ImageStorage;
+use App\Interfaces\ImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -41,8 +41,10 @@ class AdminDevelopOrderController extends Controller
             }
         } else {
             $order->setState('1');
-            $storeImage = new ImageStorage();
-            $order->setPhoto($storeImage->multipleStore($request));
+            $storage = "local";
+            $storeInterface = app(ImageStorage::class,
+            ['storage' => $storage]);
+            $order->setPhoto($storeInterface->multipleStore($request));
             if ($request->get('observation')) {
                 $order->setObservation($request->get('observation'));
             }

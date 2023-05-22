@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            'key_file_path' => env('GOOGLE_CLOUD_KEY_FILE', base_path('service-account.json')), // optional: /path/to/service-account.json
+            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID', 'your-project-id'), // optional: is included in key file
+            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET', 'your-bucket'),
+        ],
+
     ],
 
     /*

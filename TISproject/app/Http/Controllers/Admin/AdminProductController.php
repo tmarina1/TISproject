@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Util\ImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Interfaces\ImageStorage;
 
 class AdminProductController extends Controller
 {
@@ -23,12 +23,14 @@ class AdminProductController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Product::validate($request);
-        $storeImage = new ImageStorage();
+        $storage = "gcp";
+        $storeInterface = app(ImageStorage::class,
+            ['storage' => $storage]);
         $productOfTheMonth = $request->get('productOfTheMonth');
 
         $product = new Product;
         $product->setReference($request->get('reference'));
-        $product->setImage($storeImage->store($request));
+        $product->setImage($storeInterface->store($request));
         $product->setBrand($request->get('brand'));
         $product->setPrice($request->get('price'));
         $product->setStock($request->get('stock'));
