@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('subtitle', 'NukeBombs') 
 @section('content')
-<h4 class="text-center">{{ __('texts.infoNukeStore') }}: <a href="https://www.nukestore.world/">Nukestore</a></h4>
+<h4 class="text-center">{{ __('texts.infoNukeStore') }}: <a href="https://www.nukestore.world/">Nukestrore</a></h4>
 <div class="containerCards">
 @foreach($viewData as $item)
     <section class="bombCard">
