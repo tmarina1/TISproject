@@ -1,11 +1,12 @@
 <?php
-#Juan Pablo Yepes
+
+//Juan Pablo Yepes
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\FilmDevelopOrder;
 use App\Interfaces\ImageStorage;
+use App\Models\FilmDevelopOrder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -41,9 +42,9 @@ class AdminDevelopOrderController extends Controller
             }
         } else {
             $order->setState('1');
-            $storage = "local";
+            $storage = 'local';
             $storeInterface = app(ImageStorage::class,
-            ['storage' => $storage]);
+                ['storage' => $storage]);
             $order->setPhoto($storeInterface->multipleStore($request));
             if ($request->get('observation')) {
                 $order->setObservation($request->get('observation'));

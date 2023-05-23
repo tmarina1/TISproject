@@ -1,6 +1,6 @@
 <?php
 
-#Juan Pablo Yepes
+//Juan Pablo Yepes
 
 namespace App\Http\Controllers;
 

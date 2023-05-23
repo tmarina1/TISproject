@@ -1,6 +1,6 @@
 <?php
 
-#Juan Pablo Yepes
+//Juan Pablo Yepes
 
 namespace App\Http\Controllers;
 
@@ -42,7 +42,7 @@ class FilmDevelopOrderController extends Controller
         FilmDevelopOrder::validate($request);
         $totalPrice = 20;
         $userId = Auth::user()->getId();
-        if (Product::validateBalance($userId, $totalPrice)){
+        if (Product::validateBalance($userId, $totalPrice)) {
             $filmOrder = new FilmDevelopOrder;
             $filmOrder->setReferenceFilm($request->get('referenceFilm'));
             if ($request->get('usePermission')) {
@@ -56,11 +56,8 @@ class FilmDevelopOrderController extends Controller
             Auth::user()->save();
 
             return back()->with('success', 1);
-        }else
-        {
+        } else {
             return back()->with('fail', 1);
         }
-
-        
     }
 }

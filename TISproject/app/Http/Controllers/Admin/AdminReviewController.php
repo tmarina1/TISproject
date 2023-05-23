@@ -1,5 +1,6 @@
 <?php
-#Simon Cardenas
+
+//Simon Cardenas
 
 namespace App\Http\Controllers\Admin;
 

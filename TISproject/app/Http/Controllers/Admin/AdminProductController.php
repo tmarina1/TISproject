@@ -1,14 +1,15 @@
 <?php
-#Tomas Marin Aristizabal
+
+//Tomas Marin Aristizabal
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\ImageStorage;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Interfaces\ImageStorage;
 
 class AdminProductController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminProductController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Product::validate($request);
-        $storage = "gcp";
+        $storage = 'gcp';
         $storeInterface = app(ImageStorage::class,
             ['storage' => $storage]);
         $productOfTheMonth = $request->get('productOfTheMonth');
@@ -63,11 +64,11 @@ class AdminProductController extends Controller
             $storeImage = new ImageStorage();
             $product->setImage($storeImage->store($request));
         }
-        
+
         $product->setPrice($request->get('price'));
         $product->setStock($request->get('stock'));
         $product->setDescription($request->get('description'));
-        
+
         if ($productOfTheMonth == 'add') {
             $product->setProductOfTheMonth('1');
         } else {

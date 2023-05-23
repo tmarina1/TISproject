@@ -1,6 +1,6 @@
 <?php
 
-#Tomas Marin Aristizabal y Juan Pablo Yepes
+//Tomas Marin Aristizabal y Juan Pablo Yepes
 
 namespace App\Http\Controllers;
 
@@ -36,14 +36,12 @@ class CartController extends Controller
     {
         $product = Product::find($id);
         $products = $request->session()->get('products');
-        
-        if($product->getStock() == 0) {
 
-        }elseif ($request->get('quantity') >= $product->getStock()) {
+        if ($product->getStock() == 0) {
+        } elseif ($request->get('quantity') >= $product->getStock()) {
             $products[$id] = $product->getStock();
             $request->session()->put('products', $products);
-            
-        }else{
+        } else {
             $products[$id] = $request->input('quantity');
             $request->session()->put('products', $products);
         }

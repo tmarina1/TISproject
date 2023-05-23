@@ -1,12 +1,12 @@
 <?php
 
-#Tomas Marin Aristizabal
+//Tomas Marin Aristizabal
 
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -21,6 +21,7 @@ class HomeController extends Controller
         $data = User::findOrFail($userId);
         $viewData = [];
         $viewData['user'] = $data;
-        return view('home.myAccount')->with('viewData', $viewData);;
+
+        return view('home.myAccount')->with('viewData', $viewData);
     }
 }

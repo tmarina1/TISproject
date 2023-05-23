@@ -4,8 +4,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use App\Models\FilmDevelopOrder;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -22,7 +22,7 @@ class ProductController extends Controller
         $viewData['product'] = $product;
         $viewData['productOfTheMonth'] = $productOfTheMonth;
         $viewData['images'] = [];
-        if($filmOfTheMonth){
+        if ($filmOfTheMonth) {
             $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
         }
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $viewData['productOfTheMonth'] = Product::where('productOfTheMonth', true)->get();
         $filmOfTheMonth = FilmDevelopOrder::where('filmOfTheMonth', true)->where('usePermission', true)->get()->first();
         $viewData['images'] = [];
-        if($filmOfTheMonth){
+        if ($filmOfTheMonth) {
             $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
         }
 
@@ -74,7 +74,7 @@ class ProductController extends Controller
         $viewData['productOfTheMonth'] = Product::where('productOfTheMonth', true)->get();
         $filmOfTheMonth = FilmDevelopOrder::where('filmOfTheMonth', true)->where('usePermission', true)->get()->first();
         $viewData['images'] = [];
-        if($filmOfTheMonth){
+        if ($filmOfTheMonth) {
             $viewData['images'] = explode(',', $filmOfTheMonth->getPhoto());
         }
 
